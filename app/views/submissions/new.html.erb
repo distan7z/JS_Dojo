@@ -3,16 +3,16 @@
 <div>
   <h2><%= @exercice.title %></h2>
   <p><%= @exercice.details %></p>
-  <p><#%= @exercice.instructions %></p>
+  <p><%= @exercice.instructions %></p>
   <p>XP: <%= @exercice.exp %></p>
 </div>
 
 <div>
   <h2>Your solution</h2>
   <div>
-  <%= simple_form_for [@exercice, @submission] do |f| %>
-    <%= f.input :user_code %>
-    <%= f.button :submit %>
-  <% end %>
+    <%= simple_form_for [@exercice, @submission] do |f| %>
+      <%= f.input :user_code %>
+      <%= f.button :submit %>
+    <% end %>
   </div>
 </div>
