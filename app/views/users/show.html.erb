@@ -1,2 +1,9 @@
-<h1><%= @user.username %></h1>
-<p>From: <%= @user.country %></p>
+<%# This is the view for the show action %>
+<%# The show action is used to display a single user %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/assets/profile-banner.jpg);">
+  <div class="container">
+      <h1><%= @user.username %></h1> <p>from: <%= @user.country %> !</p>
+      <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
+      <p>TBD: Profile Biography?</p>
+  </div>
+</div>
