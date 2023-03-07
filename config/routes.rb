@@ -2,16 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :submissions, only: [:show] do
-    resources :reviews, only: [:new, :create]
+  resources :submissions, only: [:show], shallow: true do
+    resources :reviews, only: [:create]
   end
 
-  resources :reviews, only: [:index, :show]
-
-  resources :exercices, only: [:index, :show] do
+  resources :exercices, only: [:index, :show], shallow: true do
     resources :submissions, only: [:new, :create]
     resources :bookmarks, only: [:create, :destroy]
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 end
