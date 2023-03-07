@@ -1,2 +1,12 @@
-<h1>Exercices#index</h1>
-<p>Find me in app/views/exercices/index.html.erb</p>
+<div>
+  <h1>Exercices#index</h1>
+  <div class="card-product">
+    <div class="card-product-infos">
+      <% @exercices.each do |exercice| %>
+        <h2>Title : <%= exercice.title%></h2>
+        <p>Details : <%= exercice.details%></p>
+        <p>Instruction : <%= exercice.instruction%> </p>
+        <p>Exp : <%= exercice.exp%> </p>
+      <% end %>
+  </div>
+</div>
