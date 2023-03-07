@@ -1,0 +1,13 @@
+<div>
+  <h1>Leaderboards</h1>
+  <% @users.each do |user| %>
+    <div class="card-product">
+    <%#TO DO <img src=“” alt=“”> %>
+      <div class=“card-product-infos”>
+        <h2> <%= user.username%></h2>
+        <p>country : <%= user.country%> </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

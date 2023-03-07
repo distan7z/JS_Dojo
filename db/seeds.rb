@@ -20,6 +20,6 @@ puts "Creating exercices..."
 Exercice.create(title: "Exercice 1", details: "Details 1", instructions: "Instruction 1", exp: 10, testing_code: "", solution: "abcd")
 
 puts "Creating submissions..."
-Submission.create(attempts_count: 1, validation:"", user_id: User.first.id, exercice_id: Exercice.first.id)
+Submission.create(attempts_count: 1, validation: false, user_id: User.first.id, exercice_id: Exercice.first.id)
 
 puts "Database seeded!"
