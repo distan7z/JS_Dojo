@@ -10,8 +10,8 @@
 <div>
   <h2>Your solution</h2>
   <div>
-  <%= simple_form_for @exercice do |f| %>
-    <%= f.input :submission %>
+  <%= simple_form_for [@exercice, @submission] do |f| %>
+    <%= f.input :user_code %>
     <%= f.button :submit %>
   <% end %>
   </div>
