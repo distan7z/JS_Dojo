@@ -4,13 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :submissions
-  has_one_attached :photo
-  has_one_attached :banner
-  before_save :downcase_country
 
-  private
-
-  def downcase_country
-    self.country = country.downcase
+  def beginners_luck?
+    submissions.validated.where(attempts_count: 1).any?
   end
+
 end
