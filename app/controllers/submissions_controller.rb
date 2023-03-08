@@ -1,9 +1,14 @@
+require "execjs"
+
 class SubmissionsController < ApplicationController
 
   def new
     # needs upstream data from Exercices controller (is what's next OK?)
     @exercice = Exercice.find(params[:exercice_id])
     @submission = Submission.new
+
+    @output = "No output 🧐 Run your JavaScript code!"
+    @current_error = "No errors (yet 🥲)"
   end
 
   def create
@@ -40,6 +45,20 @@ class SubmissionsController < ApplicationController
   def edit
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
+    @current_error = "No errors (yet 🥲)"
+
+    begin
+      puts "Begin evaluating JS..."
+      @output = ExecJS.eval(@submission.user_code)
+    rescue StandardError => e
+      @current_error = e
+      p e
+    else
+      puts "No errors!"
+    ensure
+      puts "... end evaluating JS"
+    end
+
     puts "_____________________________________________________________________"
     if @submission.user_code == @exercice.solution
       puts "\n*****user_code equals solution*****\n"
