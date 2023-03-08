@@ -1,7 +1,7 @@
 <div>
   <h1>Exercices#index</h1>
   <% @exercices.each do |exercice| %>
-    <%= link_to exercice_path(exercice) do %>
+    <%= link_to  new_exercice_submission_path(exercice) do %>
       <div class="card-product">
         <div class="card-product-infos">
             <h2>Title : <%= exercice.title%></h2>
