@@ -13,6 +13,10 @@
   <body>
   <%= render "shared/navbar" %>
   <%= render "shared/flashes" %>
+  <% if params[:controller] == "users" && params[:action] == "show" %>
+    <%= render "shared/banner_user" %>
+  <% end %>
+
 
     <div class="container">
       <%= yield %>
