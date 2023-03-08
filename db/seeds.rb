@@ -7,23 +7,26 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning Database..."
 
+Tag.destroy_all
 Submission.destroy_all
 Exercice.destroy_all
 User.destroy_all
 
-
 puts "Database cleaned!"
 
 puts "Creating users..."
-User.create(username: "test-user", email: "test@email.com", password: "123456", country: "France")
+User.create!(username: "test-user", email: "test@email.com", password: "azerty", country: "France")
+User.create!(username: "test-user", email: "test1@email.com", password: "azerty", country: "Spain")
+User.create!(username: "test-user", email: "test2@email.com", password: "azerty", country: "Germany")
+
 
 puts "Creating exercices..."
-Exercice.create(title: "Even or odd?",
+exercice1 = Exercice.create!(title: "Even or odd?",
   details: "const evenOrOdd = (number) => {
     // TODO: this should return 'even' if the number is even, 'odd' otherwise
   };",
-  instructions: "Commençons par un algorithme très simple. Ouvre le fichier lib/even_or_odd.js. Code la fonction evenOrOdd qui prend un paramètre number (de type number) et retourne une string :'even' si le numéro est pair (0, 2, 4, etc.)
-  'odd' si le numéro est impair (1, 3, 5, etc.)",
+  instructions: "Let's start with a very simple algorithm. Open the file lib/even_or_odd.js. Code the evenOrOdd function which takes a number parameter (of type number) and returns a string : 'even' if the number is even (0, 2, 4, etc.)
+  odd' if the number is odd (1, 3, 5, etc.)",
   exp: 10,
   testing_code: "",
   solution: "const evenOrOdd = (number) => {
@@ -32,7 +35,8 @@ Exercice.create(title: "Even or odd?",
   } else {
     return ('odd');
   }};")
-Exercice.create(title: "Looping",
+
+exercice2 = Exercice.create!(title: "Looping",
   details: "const sumOfNegative = (numbers) => {
   // TODO: You are getting a `numbers` array. Return the sum of **negative** numbers only.
   };",
@@ -54,7 +58,54 @@ Exercice.create(title: "Looping",
   };
   ")
 
+exercice3 = Exercice.create!(title: "Minutes To Second",
+  details: "Example:
+  minuteToSecond(4) ➞ 240
+
+  minuteToSecond(3) ➞ 180",
+  instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
+  exp: 5, testing_code: "",
+  solution: "function minuteToSecond(minutes) {
+    return  minutes * 60;
+  }
+  ")
+
+exercice4 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+
+  remainderDiv(2, 4) ➞ 2
+
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5, testing_code: "",
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+
 puts "Creating submissions..."
-Submission.create(attempts_count: 1, validation: false, user_id: User.first.id, exercice_id: Exercice.first.id)
+Submission.create!(attempts_count: 1, validation: false, user_id: User.first.id, exercice_id: Exercice.first.id)
+
+puts "Creating tags..."
+Tag.create!(title: "Fundamentals", exercice: exercice1)
+Tag.create!(title: "Fundamentals", exercice: exercice2)
+Tag.create!(title: "Fundamentals", exercice: exercice3)
+Tag.create!(title: "Fundamentals", exercice: exercice4)
+Tag.create!(title: "Numbers", exercice: exercice1 )
+Tag.create!(title: "Numbers", exercice: exercice2)
+Tag.create!(title: "Numbers", exercice: exercice3)
+Tag.create!(title: "Numbers", exercice: exercice4)
+Tag.create!(title: "String", exercice: exercice2)
+Tag.create!(title: "Date Time", exercice: exercice3)
+Tag.create!(title: "Express", exercice: exercice3, exercice: exercice4)
+Tag.create!(title: "Express", exercice: exercice3, exercice: exercice4)
+
 
 puts "Database seeded!"
+
+
+#TO DO TAGS
+
+#TO DO CHALLENGE
