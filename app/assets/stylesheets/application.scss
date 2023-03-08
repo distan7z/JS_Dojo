@@ -10,3 +10,17 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+// padding-block is vertical padding
+// padding-inline is horizontal padding
+
+h1{
+  padding-block: 20;
+  padding-inline: 10;
+}
+
+h2{
+  padding-block: 20;
+  padding-inline: 10;
+}
