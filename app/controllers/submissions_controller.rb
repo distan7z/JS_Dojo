@@ -15,6 +15,7 @@ class SubmissionsController < ApplicationController
 
     @submission.user_id = current_user.id
     @submission.exercice_id = @exercice.id
+    @submission.attempts_count = 0
 
     puts "Errors:\n"
     puts @submission.errors.full_messages
@@ -23,6 +24,7 @@ class SubmissionsController < ApplicationController
 
     if @submission.save
       puts "Submission successfully saved!\n Redirecting to edit_exercice path"
+      @submission.validation = false
       redirect_to edit_exercice_submission_path(@exercice, @submission) # pour éviter de réécrire la validation dans create ET edit
     else
       puts "Submission not saved!\n Redirecting to new_exercice path"
@@ -32,6 +34,7 @@ class SubmissionsController < ApplicationController
   end
 
   def show
+    @submission = Submission.find(params[:id])
   end
 
   def edit
@@ -40,9 +43,12 @@ class SubmissionsController < ApplicationController
     puts "_____________________________________________________________________"
     if @submission.user_code == @exercice.solution
       puts "\n*****user_code equals solution*****\n"
-      redirect_to submission_path(:show)
+      @submission.validation = true
+      redirect_to submission_path(@submission)
     else
       puts "\n*****user_code NOT equals solution*****\n"
+      @submission.attempts_count += 1
+      @submission.save
       render :edit
     end
     puts "_____________________________________________________________________\n"

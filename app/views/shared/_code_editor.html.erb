@@ -9,6 +9,10 @@
 </div>
 
 <div>
+  <p>user attempts: <%= @submission.attempts_count %></p>
+</div>
+
+<div>
   <h2>Your solution</h2>
   <div>
     <%= simple_form_for [@exercice, @submission] do |f| %>
