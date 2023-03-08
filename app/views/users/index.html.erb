@@ -4,10 +4,8 @@
     <div class="card-product">
     <%#TO DO <img src=“” alt=“”> %>
       <div class=“card-product-infos”>
-        <h2> <%= user.username%></h2>
-        <p>country : <%= user.country%> </p>
+        <h2><%= image_tag (asset_path("flags/#{user.country.downcase}.png")), style: "width: 32px;" %> <%= user.username%></h2>
       </div>
     </div>
   <% end %>
 </div>
-
