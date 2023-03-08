@@ -21,6 +21,9 @@
     <%= f.input :country, collection: ["France", "Germany", "Spain"],
                 required: true,
                 autofocus: true %>
+    <%= f.input :avatar, as: :file,
+                required: false,
+                autofocus: true %>
   </div>
 
 
