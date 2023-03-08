@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_092937) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_094314) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_092937) do
     t.bigint "exercice_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "user_code"
+    t.text "user_code"
     t.index ["exercice_id"], name: "index_submissions_on_exercice_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end
