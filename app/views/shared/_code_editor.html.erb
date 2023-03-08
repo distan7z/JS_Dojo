@@ -1,0 +1,19 @@
+<h1>Code editor</h1>
+
+<div>
+  <h2><%= @exercice.title %></h2>
+  <p><%= @exercice.details %></p>
+  <p><%= @exercice.instructions %></p>
+  <p>XP: <%= @exercice.exp %></p>
+  <p>[will be deleted -- for test purposes] <br> solution: <%= @exercice.solution %></p>
+</div>
+
+<div>
+  <h2>Your solution</h2>
+  <div>
+    <%= simple_form_for [@exercice, @submission] do |f| %>
+      <%= f.input :user_code %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
