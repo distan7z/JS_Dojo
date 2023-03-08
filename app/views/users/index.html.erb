@@ -2,7 +2,6 @@
   <h1>Leaderboards</h1>
   <% @users.each do |user| %>
     <div class="card-product">
-    <%#TO DO <img src=“” alt=“”> %>
       <div class=“card-product-infos”>
         <h2><%= image_tag (asset_path("flags/#{user.country.downcase}.png")), style: "width: 32px;" %> <%= user.username%></h2>
       </div>
