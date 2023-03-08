@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_03_08_094314) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,8 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_094314) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.integer "attempts_count"
-    t.text "validation"
+    t.integer "attempts_count", default: 0
+    t.boolean "validation"
     t.bigint "user_id", null: false
     t.bigint "exercice_id", null: false
     t.datetime "created_at", null: false
