@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 gem 'acts_as_favoritor'
+gem "faker"
 
 # particlesjs-rails
 #gem 'particles-js-rails'
@@ -60,6 +61,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "cloudinary"
 gem "execjs"
 gem 'mini_racer'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

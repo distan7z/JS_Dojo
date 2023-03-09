@@ -6,9 +6,11 @@
       <% @exercices.each do |exercice| %>
         <div class="card-product d-flex">
           <div class="m-4">
-          <%= link_to toggle_favorite_exercice_path(exercice), data: {turbo_method: :post} do %>
-            <%= render partial: 'exercices/like_button', locals: { exercice: exercice } %>
-          <% end %>
+            <% if user_signed_in? %>
+              <%= link_to toggle_favorite_exercice_path(exercice), data: {turbo_method: :post} do %>
+                <%= render partial: 'exercices/like_button', locals: { exercice: exercice } %>
+              <% end %>
+            <% end %>
           </div>
           <div>
             <span style="display: flex">
