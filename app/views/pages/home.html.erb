@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section id="hero-banner">
+  <div class="banner" style="background-image: url('app/assets/images/hero_banner.jpg');">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Train Your Javascript Skills!</h2>
+        <p>Get better at Javascript through fun and interactive challenges. Earn points,
+        badges, and climb the rankings.</p>
+        <%= link_to 'Start Training Now', exercices_path, class: 'custom-hover' %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="challenges-banner">
+  <div class="banner-right">
+    <div class="container">
+      <div class="challenges-content">
+        <h2>Challenges</h2>
+        <p>Choose from a variety of coding challenges, quizzes and projects</p>
+        <p>New challenges are added regularly to keep the platform fresh and engaging</p>
+        <a href="#" class="custom-hover">See this week's challenges</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="leaderboards-banner">
+  <div class="banner">
+    <div class="container">
+      <div class="leaderboards-content">
+        <h2>Leaderboards</h2>
+        <p>See how you stack up against other users on the platform.
+        Climb the ranks and compete for the top spot.</p>
+        <%= link_to 'View Leaderboards', users_path, class: 'custom-hover' %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -18,11 +18,21 @@
 h1{
   padding-block: 20;
   padding-inline: 10;
+  color: white;
 }
 
 h2{
   padding-block: 20;
   padding-inline: 10;
+  color: white;
+}
+
+p{
+  color: white;
+}
+
+body{
+  background: darken($color: blue, $amount: 46%);
 }
 
 a {
