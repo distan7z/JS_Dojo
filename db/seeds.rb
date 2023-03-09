@@ -1,3 +1,4 @@
+require "faker"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -15,10 +16,19 @@ User.destroy_all
 puts "Database cleaned!"
 
 puts "Creating users..."
-User.create!(username: "test-user", email: "test@email.com", password: "azerty", country: "France")
-User.create!(username: "Guillermo", email: "test1@email.com", password: "azerty", country: "Spain")
-User.create!(username: "Karl", email: "test2@email.com", password: "azerty", country: "Germany")
 
+COUNTRY = [
+  "Germany",
+  "Spain",
+  "France"
+]
+
+def new_users
+  for i in (0..10)
+    User.create!(username: Faker::Internet.username, email: "user_#{i}@mail.com",password: "azerty", country: COUNTRY.sample)
+  end
+end
+new_users
 
 puts "Creating exercices..."
 exercice1 = Exercice.create!(title: "Even or odd?",
