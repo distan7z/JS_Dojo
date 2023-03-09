@@ -1,0 +1,18 @@
+[
+  {
+    "input" : "evenOrOdd(1);",
+    "expected-output" : "odd"
+  },
+  {
+    "input" : "evenOrOdd(2);",
+    "expected-output" : "even"
+  },
+  {
+    "input" : "evenOrOdd(-1);",
+    "expected-output" : "odd"
+  },
+  {
+    "input" : "evenOrOdd(6642);",
+    "expected-output" : "even"
+  }
+]

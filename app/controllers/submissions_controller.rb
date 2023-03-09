@@ -3,7 +3,6 @@ require "execjs"
 class SubmissionsController < ApplicationController
 
   def new
-    # needs upstream data from Exercices controller (is what's next OK?)
     @exercice = Exercice.find(params[:exercice_id])
     @submission = Submission.new
 
@@ -21,11 +20,10 @@ class SubmissionsController < ApplicationController
     @submission.user_id = current_user.id
     @submission.exercice_id = @exercice.id
     @submission.attempts_count = 0
+    @submission.validation = false
 
     puts "Errors:\n"
     puts @submission.errors.full_messages
-
-    puts "_____________________________________________________________________"
 
     if @submission.save
       puts "Submission successfully saved!\n Redirecting to edit_exercice path"
@@ -35,7 +33,6 @@ class SubmissionsController < ApplicationController
       puts "Submission not saved!\n Redirecting to new_exercice path"
       redirect_to new_exercice_submission_path(@exercice)
     end
-    puts "_____________________________________________________________________\n"
   end
 
   def show
@@ -46,40 +43,36 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
 
-    if @attempts_count == 0
-      @current_error = "No errors (yet 🥲)"
-    else
-      @current_error = "(No errors)"
+    @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
+
+    @rakes = JSON.parse(@exercice.testing_code)
+
+    puts "Begin evaluating JS..."
+
+    @rakes.each do |unit_test|
+      puts "unit test n°#{@rakes.find_index(unit_test)}"
+      begin
+        context = MiniRacer::Context.new
+        to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
+        @executed = context.eval(to_be_evaluated)
+        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{@executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
+        @submission.validation = @executed == unit_test["expected-output"]
+      rescue StandardError => e
+        @current_error = e
+        p "Error: #{e}"
+      end
     end
 
-    begin
-      puts "Begin evaluating JS..."
-      #@output = ExecJS.eval(@submission.user_code)
-      context = MiniRacer::Context.new
-      # context.eval 'var adder = (a,b)=>a+b;'
-      # puts context.eval 'adder(20,22)'
-      @output = context.eval(@submission.user_code)
-    rescue StandardError => e
-      @current_error = e
-      p e
-    else
-      puts "No errors!"
-    ensure
-      puts "... end evaluating JS"
-    end
+    puts "... end evaluating JS"
 
-    puts "_____________________________________________________________________"
-    if @submission.user_code == @exercice.solution
-      puts "\n*****user_code equals solution*****\n"
-      @submission.validation = true
+    @submission.attempts_count += 1
+    @submission.save
+
+    if @submission.validation
       redirect_to submission_path(@submission)
     else
-      puts "\n*****user_code NOT equals solution*****\n"
-      @submission.attempts_count += 1
-      @submission.save
       render :edit
     end
-    puts "_____________________________________________________________________\n"
   end
 
   def update
@@ -93,7 +86,6 @@ class SubmissionsController < ApplicationController
       puts "Submission not updated!\n Redirecting to new_exercice path"
       redirect_to edit_exercice_submission_path(@exercice)
     end
-    puts "_____________________________________________________________________\n"
   end
 
   private

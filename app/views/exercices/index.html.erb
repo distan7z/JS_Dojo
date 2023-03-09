@@ -2,20 +2,27 @@
   <h1>Exercices#index</h1>
   <hr>
   <div class="row">
-    <div class="col-xs-12 col-sm-6">
+    <div>
       <% @exercices.each do |exercice| %>
-        <div class="d-flex">
-          <div>
+        <div class="card-product d-flex">
+          <div class="m-4">
           <%= link_to toggle_favorite_exercice_path(exercice), data: {turbo_method: :post} do %>
             <%= render partial: 'exercices/like_button', locals: { exercice: exercice } %>
           <% end %>
           </div>
           <div>
-            <%= link_to  new_exercice_submission_path(exercice) do %>
-              <h3><%= exercice.title %></h3>
-              <p>Instruction : <%= exercice.instructions %></p>
-              <p>Exp : <%= exercice.exp%> </p>
-            <% end %>
+            <span style="display: flex">
+              <%= link_to  new_exercice_submission_path(exercice) do %>
+                <h3><%= exercice.title %></h3>
+              <% end %>
+              <%exercice.tags.each do |tag|%>
+                <div class= "badge rounded-pill text-bg-warning mx-2">
+                  <p><%= tag.title %></p>
+                </div>
+              <% end %>
+            </span>
+            <p>Instruction : <%= exercice.instructions.first(170)%> [...] </p>
+            <p>Exp : <strong><%= exercice.exp%></strong> </p>
           </div>
         </div>
       <% end %>

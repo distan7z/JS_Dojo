@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :banner_picture
 
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+
 
   def beginners_luck?
     submissions.validated.where(attempts_count: 1).any?
