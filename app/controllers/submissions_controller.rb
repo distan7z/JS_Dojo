@@ -45,11 +45,20 @@ class SubmissionsController < ApplicationController
   def edit
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
-    @current_error = "No errors (yet 🥲)"
+
+    if @attempts_count == 0
+      @current_error = "No errors (yet 🥲)"
+    else
+      @current_error = "(No errors)"
+    end
 
     begin
       puts "Begin evaluating JS..."
-      @output = ExecJS.eval(@submission.user_code)
+      #@output = ExecJS.eval(@submission.user_code)
+      context = MiniRacer::Context.new
+      # context.eval 'var adder = (a,b)=>a+b;'
+      # puts context.eval 'adder(20,22)'
+      @output = context.eval(@submission.user_code)
     rescue StandardError => e
       @current_error = e
       p e

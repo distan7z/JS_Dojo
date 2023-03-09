@@ -17,7 +17,7 @@
   <div>
     <%= simple_form_for [@exercice, @submission] do |f| %>
       <%= f.input :user_code %>
-      <%= f.button :submit %>
+      <%= f.button :submit, 'Run', class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
