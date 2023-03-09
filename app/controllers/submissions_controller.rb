@@ -46,11 +46,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
 
-    if @attempts_count == 0
-      @current_error = "No errors (yet 🥲)"
-    else
-      @current_error = "(No errors)"
-    end
+    @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
 
     begin
       puts "Begin evaluating JS..."
