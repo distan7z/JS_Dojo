@@ -1,0 +1,10 @@
+#challenges-banner {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#challenges-banner .container {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
