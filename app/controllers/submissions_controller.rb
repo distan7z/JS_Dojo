@@ -3,7 +3,6 @@ require "execjs"
 class SubmissionsController < ApplicationController
 
   def new
-    # needs upstream data from Exercices controller (is what's next OK?)
     @exercice = Exercice.find(params[:exercice_id])
     @submission = Submission.new
 
@@ -26,8 +25,6 @@ class SubmissionsController < ApplicationController
     puts "Errors:\n"
     puts @submission.errors.full_messages
 
-    puts "_____________________________________________________________________"
-
     if @submission.save
       puts "Submission successfully saved!\n Redirecting to edit_exercice path"
       @submission.validation = false
@@ -36,7 +33,6 @@ class SubmissionsController < ApplicationController
       puts "Submission not saved!\n Redirecting to new_exercice path"
       redirect_to new_exercice_submission_path(@exercice)
     end
-    puts "_____________________________________________________________________\n"
   end
 
   def show
@@ -69,22 +65,6 @@ class SubmissionsController < ApplicationController
 
     puts "... end evaluating JS"
 
-    # begin
-    #   puts "Begin evaluating JS..."
-    #   #@output = ExecJS.eval(@submission.user_code)
-    #   context = MiniRacer::Context.new
-    #   # context.eval 'var adder = (a,b)=>a+b;'
-    #   # puts context.eval 'adder(20,22)'
-    #   @output = context.eval(@submission.user_code)
-    # rescue StandardError => e
-    #   @current_error = e
-    #   p e
-    # else
-    #   puts "No errors!"
-    # ensure
-    #   puts "... end evaluating JS"
-    # end
-
     if @submission.validation
       redirect_to submission_path(@submission)
     else
@@ -105,7 +85,6 @@ class SubmissionsController < ApplicationController
       puts "Submission not updated!\n Redirecting to new_exercice path"
       redirect_to edit_exercice_submission_path(@exercice)
     end
-    puts "_____________________________________________________________________\n"
   end
 
   private
