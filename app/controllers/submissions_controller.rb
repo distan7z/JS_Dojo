@@ -1,9 +1,14 @@
+require "execjs"
+
 class SubmissionsController < ApplicationController
 
   def new
     # needs upstream data from Exercices controller (is what's next OK?)
     @exercice = Exercice.find(params[:exercice_id])
     @submission = Submission.new
+
+    @output = "No output 🧐 Run your JavaScript code!"
+    @current_error = "No errors (yet 🥲)"
   end
 
   def create
@@ -40,6 +45,29 @@ class SubmissionsController < ApplicationController
   def edit
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
+
+    if @attempts_count == 0
+      @current_error = "No errors (yet 🥲)"
+    else
+      @current_error = "(No errors)"
+    end
+
+    begin
+      puts "Begin evaluating JS..."
+      #@output = ExecJS.eval(@submission.user_code)
+      context = MiniRacer::Context.new
+      # context.eval 'var adder = (a,b)=>a+b;'
+      # puts context.eval 'adder(20,22)'
+      @output = context.eval(@submission.user_code)
+    rescue StandardError => e
+      @current_error = e
+      p e
+    else
+      puts "No errors!"
+    ensure
+      puts "... end evaluating JS"
+    end
+
     puts "_____________________________________________________________________"
     if @submission.user_code == @exercice.solution
       puts "\n*****user_code equals solution*****\n"

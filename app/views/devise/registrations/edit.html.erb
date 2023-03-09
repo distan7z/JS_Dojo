@@ -11,18 +11,26 @@
     <% end %>
 
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Set up a new password if you want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :country,
-                hint: "leave it blank if you don't want to change it",
+    <%= f.input :country, collection: ["France", "Germany", "Spain"],
+                hint: "Leave it blank if you don't want to change it",
+                required: false,
+                autofocus: true %>
+    <%= f.input :avatar, as: :file,
+                hint: "Leave it blank if you don't want to change it",
+                required: false,
+                autofocus: true %>
+    <%= f.input :banner_picture, as: :file,
+                hint: "Leave it blank if you don't want to change it",
                 required: false,
                 autofocus: true %>
   </div>

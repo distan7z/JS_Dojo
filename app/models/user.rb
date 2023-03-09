@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :submissions
   acts_as_favoritor
+  has_one_attached :avatar
+  has_one_attached :banner_picture
+
 
   def beginners_luck?
     submissions.validated.where(attempts_count: 1).any?
