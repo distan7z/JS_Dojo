@@ -21,6 +21,7 @@ class SubmissionsController < ApplicationController
     @submission.user_id = current_user.id
     @submission.exercice_id = @exercice.id
     @submission.attempts_count = 0
+    @submission.validation = false
 
     puts "Errors:\n"
     puts @submission.errors.full_messages
@@ -48,34 +49,49 @@ class SubmissionsController < ApplicationController
 
     @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
 
-    begin
-      puts "Begin evaluating JS..."
-      #@output = ExecJS.eval(@submission.user_code)
-      context = MiniRacer::Context.new
-      # context.eval 'var adder = (a,b)=>a+b;'
-      # puts context.eval 'adder(20,22)'
-      @output = context.eval(@submission.user_code)
-    rescue StandardError => e
-      @current_error = e
-      p e
-    else
-      puts "No errors!"
-    ensure
-      puts "... end evaluating JS"
+    @rakes = JSON.parse(@exercice.testing_code)
+
+    puts "Begin evaluating JS..."
+
+    @rakes.each do |unit_test|
+      puts "unit test n°#{@rakes.find_index(unit_test)}"
+      begin
+        context = MiniRacer::Context.new
+        to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
+        @executed = context.eval(to_be_evaluated)
+        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{@executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
+        @submission.validation = @executed == unit_test["expected-output"]
+      rescue StandardError => e
+        @current_error = e
+        p "Error: #{e}"
+      end
     end
 
-    puts "_____________________________________________________________________"
-    if @submission.user_code == @exercice.solution
-      puts "\n*****user_code equals solution*****\n"
-      @submission.validation = true
+    puts "... end evaluating JS"
+
+    # begin
+    #   puts "Begin evaluating JS..."
+    #   #@output = ExecJS.eval(@submission.user_code)
+    #   context = MiniRacer::Context.new
+    #   # context.eval 'var adder = (a,b)=>a+b;'
+    #   # puts context.eval 'adder(20,22)'
+    #   @output = context.eval(@submission.user_code)
+    # rescue StandardError => e
+    #   @current_error = e
+    #   p e
+    # else
+    #   puts "No errors!"
+    # ensure
+    #   puts "... end evaluating JS"
+    # end
+
+    if @submission.validation
       redirect_to submission_path(@submission)
     else
-      puts "\n*****user_code NOT equals solution*****\n"
       @submission.attempts_count += 1
       @submission.save
       render :edit
     end
-    puts "_____________________________________________________________________\n"
   end
 
   def update
