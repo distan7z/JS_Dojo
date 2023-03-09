@@ -3,7 +3,7 @@
   <% @users.each do |user| %>
     <div class="card-product">
       <div class=“card-product-infos”>
-        <h2><%= image_tag (asset_path("flags/#{user.country.downcase}.png")), style: "width: 32px;" %> <%= user.username%></h2>
+        <h2><%= image_tag (asset_path("flags/#{user.country.downcase}.png")), style: "width: 32px;" %> <%= link_to user.username, user_path(user)%></h2>
       </div>
     </div>
   <% end %>
