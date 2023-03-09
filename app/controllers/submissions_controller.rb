@@ -45,7 +45,12 @@ class SubmissionsController < ApplicationController
 
     @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
 
-    @rakes = JSON.parse(@exercice.testing_code)
+    begin
+      @rakes = JSON.parse(@exercice.testing_code)
+    rescue JSON::ParserError => e
+      puts "Parse Error. Is there an available rake for the current exercice?"
+      render :edit
+    end
 
     puts "Begin evaluating JS..."
 
@@ -57,6 +62,7 @@ class SubmissionsController < ApplicationController
         @executed = context.eval(to_be_evaluated)
         puts "to be evaluated: #{to_be_evaluated}\n@executed: #{@executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
         @submission.validation = @executed == unit_test["expected-output"]
+        puts "submission validation: #{@submission.validation}"
       rescue StandardError => e
         @current_error = e
         p "Error: #{e}"

@@ -1,0 +1,18 @@
+[
+  {
+    "input" : "minutesToSeconds(1);",
+    "expected-output" : 60
+  },
+  {
+    "input" : "remainderDiv(3);",
+    "expected-output" : 180
+  },
+  {
+    "input" : "remainderDiv(0);",
+    "expected-output" : 0
+  },
+  {
+    "input" : "remainderDiv(60);",
+    "expected-output" : 3600
+  }
+]
