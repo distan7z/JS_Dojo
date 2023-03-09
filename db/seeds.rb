@@ -16,8 +16,8 @@ puts "Database cleaned!"
 
 puts "Creating users..."
 User.create!(username: "test-user", email: "test@email.com", password: "azerty", country: "France")
-User.create!(username: "test-user", email: "test1@email.com", password: "azerty", country: "Spain")
-User.create!(username: "test-user", email: "test2@email.com", password: "azerty", country: "Germany")
+User.create!(username: "Guillermo", email: "test1@email.com", password: "azerty", country: "Spain")
+User.create!(username: "Karl", email: "test2@email.com", password: "azerty", country: "Germany")
 
 
 puts "Creating exercices..."
