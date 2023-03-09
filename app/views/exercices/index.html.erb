@@ -1,15 +1,24 @@
-<div>
+<div class="container">
   <h1>Exercices#index</h1>
-  <% @exercices.each do |exercice| %>
-    <%= link_to  new_exercice_submission_path(exercice) do %>
-      <div class="card-product">
-        <div class="card-product-infos">
-            <h2>Title : <%= exercice.title%></h2>
-            <p>Details : <%= exercice.details%></p>
-            <p>Instruction : <%= exercice.instructions%> </p>
-            <p>Exp : <%= exercice.exp%> </p>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <% @exercices.each do |exercice| %>
+        <div class="d-flex">
+          <div>
+          <%= link_to toggle_favorite_exercice_path(exercice), data: {turbo_method: :post} do %>
+            <%= render partial: 'exercices/like_button', locals: { exercice: exercice } %>
+          <% end %>
+          </div>
+          <div>
+            <%= link_to  new_exercice_submission_path(exercice) do %>
+              <h3><%= exercice.title %></h3>
+              <p>Instruction : <%= exercice.instructions %></p>
+              <p>Exp : <%= exercice.exp%> </p>
+            <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
