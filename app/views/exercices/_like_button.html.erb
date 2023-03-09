@@ -1,3 +1,3 @@
-<div class="like-icon mx-2 <%= 'text-danger' if current_user.favorited?(exercice) %>" data-id="<%= exercice.id %>">
+<div class="like-icon mx-2 <%= 'text-danger' if current_user && current_user.favorited?(exercice) %>" data-id="<%= exercice.id %>">
   <i class="fas fa-heart"></i>
 </div>

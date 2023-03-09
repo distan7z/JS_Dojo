@@ -21,6 +21,8 @@ User.create!(username: "Karl", email: "test2@email.com", password: "azerty", cou
 
 
 puts "Creating exercices..."
+exercices_path = "app/assets/exercice_rakes_data/"
+
 exercice1 = Exercice.create!(title: "Even or odd?",
   details: "const evenOrOdd = (number) => {
     // TODO: this should return 'even' if the number is even, 'odd' otherwise
@@ -28,7 +30,7 @@ exercice1 = Exercice.create!(title: "Even or odd?",
   instructions: "Let's start with a very simple algorithm. Open the file lib/even_or_odd.js. Code the evenOrOdd function which takes a number parameter (of type number) and returns a string : 'even' if the number is even (0, 2, 4, etc.)
   odd' if the number is odd (1, 3, 5, etc.)",
   exp: 10,
-  testing_code: "",
+  testing_code: File.read("#{exercices_path}evenOrOdd.json"),
   solution: "const evenOrOdd = (number) => {
   if (number % 2 === 0) {
     return ('even');
@@ -36,41 +38,20 @@ exercice1 = Exercice.create!(title: "Even or odd?",
     return ('odd');
   }};")
 
-exercice2 = Exercice.create!(title: "Looping",
-  details: "const sumOfNegative = (numbers) => {
-  // TODO: You are getting a `numbers` array. Return the sum of **negative** numbers only.
-  };",
-  instructions: "Ouvre le fichier lib/sum_of_negative.js. Code la fonction sumOfNegative qui prend un paramètre numbers (de type array) et retourne un nombre (number) : la somme des nombres négatifs dans l’array. Par exemple :
-
-  sumOfNegative([-1, 4, -2, 9, 18]) doit retourner -3
-  sumOfNegative([15, 16, 17, 1000]) doit retourner 0
-  Si ton code fonctionne, tu devrais obtenir -6. Ajoute d’autres déclarations console.log dans la fonction sumOfNegative pour débugger ton code.",
-  exp: 10, testing_code: "",
-  solution: "const sumOfNegative = (numbers) => {
-    // TODO: You are getting a `numbers` array. Return the sum of **negative** numbers only.
-    let sum = 0;
-    numbers.forEach((number) => {
-      if (number < 0) {
-        sum += number;
-      }
-    });
-    return sum;
-  };
-  ")
-
-exercice3 = Exercice.create!(title: "Minutes To Second",
+exercice2 = Exercice.create!(title: "Minutes To Second",
   details: "Example:
   minuteToSecond(4) ➞ 240
 
   minuteToSecond(3) ➞ 180",
   instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
-  exp: 5, testing_code: "",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}minutesToSeconds.json"),
   solution: "function minuteToSecond(minutes) {
     return  minutes * 60;
   }
   ")
 
-exercice4 = Exercice.create!(title: "Rest of numbers",
+exercice3 = Exercice.create!(title: "Rest of numbers",
   details: "Example:
   remainDiv(1, 3) ➞ 1
 
@@ -78,7 +59,8 @@ exercice4 = Exercice.create!(title: "Rest of numbers",
 
   remainderDiv(3, 3) ➞ 0",
   instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
-  exp: 5, testing_code: "",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
   solution: "function resteDiv(a, b) {
     return a % b;
   }
@@ -92,15 +74,12 @@ puts "Creating tags..."
 Tag.create!(title: "Fundamentals", exercice: exercice1)
 Tag.create!(title: "Fundamentals", exercice: exercice2)
 Tag.create!(title: "Fundamentals", exercice: exercice3)
-Tag.create!(title: "Fundamentals", exercice: exercice4)
 Tag.create!(title: "Numbers", exercice: exercice1 )
 Tag.create!(title: "Numbers", exercice: exercice2)
 Tag.create!(title: "Numbers", exercice: exercice3)
-Tag.create!(title: "Numbers", exercice: exercice4)
 Tag.create!(title: "String", exercice: exercice2)
 Tag.create!(title: "Date Time", exercice: exercice3)
 Tag.create!(title: "Express", exercice: exercice3)
-Tag.create!(title: "Express", exercice: exercice4)
 
 
 puts "Database seeded!"
