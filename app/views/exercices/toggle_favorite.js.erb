@@ -1,0 +1,8 @@
+var exereciceId = '<%= @exercice.id%>'
+
+function toggleLikeButton(exereciceId, innerHTML) {
+  let likeButton = document.querySelector(`.like-icon[data-id='${exereciceId}']`)
+  likeButton.classList.toggle('red');
+}
+toggleLikeButton(exereciceId);
+<%# TO DO ADD STIMULUS QUI FAIT QUI pas recharger la page en haut  %>

@@ -99,8 +99,8 @@ Tag.create!(title: "Numbers", exercice: exercice3)
 Tag.create!(title: "Numbers", exercice: exercice4)
 Tag.create!(title: "String", exercice: exercice2)
 Tag.create!(title: "Date Time", exercice: exercice3)
-Tag.create!(title: "Express", exercice: exercice3, exercice: exercice4)
-Tag.create!(title: "Express", exercice: exercice3, exercice: exercice4)
+Tag.create!(title: "Express", exercice: exercice3)
+Tag.create!(title: "Express", exercice: exercice4)
 
 
 puts "Database seeded!"

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :exercices, only: [:index, :show] do
     resources :submissions, only: [:new, :create, :edit, :update]
     resources :bookmarks, only: [:create, :destroy]
+    member do
+      post 'toggle_favorite', to: "exercices#toggle_favorite"
+    end
   end
 
   resources :users, only: [:index, :show]
