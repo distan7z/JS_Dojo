@@ -66,11 +66,11 @@ class SubmissionsController < ApplicationController
     puts "... end evaluating JS"
 
     @submission.attempts_count += 1
+    @submission.save
 
     if @submission.validation
       redirect_to submission_path(@submission)
     else
-      @submission.save
       render :edit
     end
   end
