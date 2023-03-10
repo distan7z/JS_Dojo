@@ -1,11 +1,12 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: darkgrey;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  //background: darkgrey;
+  //box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   margin-top: 16px;
   padding-top: 16px;
+  border: solid 1px $light-blue;
 }
 .card-product h2 {
   font-size: 16px;
@@ -18,10 +19,13 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 4px;
+  color: darkblue;
 }
+
 .card-product .card-product-infos {
   padding: 16px;
 }
 
 
-// Used for exercices#index & users#index
+
+// Used for exercices#index
