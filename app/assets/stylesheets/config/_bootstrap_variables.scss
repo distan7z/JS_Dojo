@@ -24,3 +24,16 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+$table-color: #f4f4f4;
+$table-bg: transparent;
+$table-border-color: var(--bs-border-color);
+$table-accent-bg: transparent;
+$table-striped-color: #f4f4f4;
+$table-striped-bg: rgba(0, 0, 0, 0.05);
+$table-active-color: #f4f4f4;
+$table-active-bg: rgba(0, 0, 0, 0.1);
+$table-hover-color: #f4f4f4;
+$table-hover-bg: rgba(0, 0, 0, 0.075);
+
+$body-color: #e9ecef;
