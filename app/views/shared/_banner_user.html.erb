@@ -10,7 +10,7 @@
       <% if @user.avatar.attached? %>
         <%= cl_image_tag @user.avatar.key, height: 80, width: 90, crop: :thumb %>
       <% else %>
-        <%= image_tag "default_picture.jpeg", height: 80, width: 90 %>
+        <%= image_tag "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRfqbrNkFoQ9fHlVLzspRucA3IGO41dFfxBruXwy_WED3gyp_iMljq9_8bUQjb1VOTEDt1oISRM1io1Qoo5WlQ", height: 80, width: 90 %>
       <% end %>
       <h1><%= image_tag (asset_path("flags/#{@user.country.downcase}.png")), style: "width: 32px;" %> <%= @user.username %></h1>
       <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
