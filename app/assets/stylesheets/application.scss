@@ -31,12 +31,12 @@ p{
   color: whitesmoke;
 }
 
-body{
-
+.my-svg{
   // approximately #000015 for darken 46%
+  background-color: #000015;
   background: url('circle-scatter-haikei-2.svg');
-
 }
+
 
 a {
   text-decoration: none;
@@ -48,6 +48,6 @@ a {
 }
 
 
-#user_password_confirmation{
-  color: $darker-blue;
+.my-bg {
+  background-color: #000015;
 }
