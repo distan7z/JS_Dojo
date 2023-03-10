@@ -32,11 +32,17 @@ p{
 }
 
 body{
-  // approximately #000073 for darken 46%
-  background: darken($color: blue, $amount: 46%);
+
+  // approximately #000015 for darken 46%
+  background: url('circle-scatter-haikei-2.svg');
+
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+
+#submission_user_code{
+  color: black !important;
 }
