@@ -20,9 +20,12 @@
 }
 
 .banner .user-info {
-  background-color: black;
-  width: fit-content;
+  background: linear-gradient(45deg, #252424, #070707, #292727);
+  width: 80%;
   padding: 10px 20px;
   border-radius: 4px;
-  opacity: .7;
+}
+
+body {
+  background: linear-gradient(#1c1d1d, #0b0c0c) !important;
 }
