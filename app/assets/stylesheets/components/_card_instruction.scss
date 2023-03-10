@@ -1,6 +1,9 @@
 .card-instruction{
-  background: grey;
   padding: 30px;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  //background-color: #20201b;
+  background-color: desaturate($color: $darkest-blue, $amount: 20%);
+  //box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 18px 8px rgba($color: $js-yellow, $alpha: 0.1);
+  border: 1px solid #3c3c3c;
+  border-radius: 8px;
 }
