@@ -1,6 +1,11 @@
 .tag {
  background-color: $js-yellow !important;
- height: 30px;
- color: $dark-blue;
- padding: 4px;
+ height: 26px;
+ //color: $dark-blue !important;
+ padding-inline: 6px;
+ margin-top: 2px;
+}
+
+.tag p{
+  color: black !important;
 }
