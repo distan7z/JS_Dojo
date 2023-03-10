@@ -1,13 +1,13 @@
-.banner-right {
+.banner {
   background-color: #000015;
   opacity: 0.85;
   border-radius: 4px;
   transition: opacity 0.5s ease-in-out;
 
   .container {
-    margin-left: auto;
-    margin-right: 0;
-    text-align: right;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
     opacity: 1;
   }
 
@@ -19,10 +19,10 @@
   }
 }
 
-.banner-right:hover{
+.banner:hover{
   opacity: 1;
 }
 
-.banner-right:not(:hover){
+.banner:not(:hover){
   opacity: 0.85;
 }
