@@ -28,7 +28,7 @@ h2{
 }
 
 p{
-  color: white;
+  color: whitesmoke;
 }
 
 body{
@@ -45,4 +45,9 @@ a {
 
 #submission_user_code{
   color: black !important;
+}
+
+
+#user_password_confirmation{
+  color: $darker-blue;
 }
