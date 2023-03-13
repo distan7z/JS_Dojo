@@ -43,7 +43,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
 
-    @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
+    @submission.attempts_count.zero? ? @current_error = "No errors (yet 🥲)" : @current_error = "(No errors)"
 
     begin
       @rakes = JSON.parse(@exercice.testing_code)
@@ -54,19 +54,27 @@ class SubmissionsController < ApplicationController
 
     puts "Begin evaluating JS..."
 
+    @rakes_insights = []
+    @exercice_validations = 0
+
     @rakes.each do |unit_test|
       puts "unit test n°#{@rakes.find_index(unit_test)}"
       begin
         context = MiniRacer::Context.new
         to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
-        @executed = context.eval(to_be_evaluated)
-        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{@executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
-        @submission.validation = @executed == unit_test["expected-output"]
-        puts "submission validation: #{@submission.validation}"
+        executed = context.eval(to_be_evaluated)
+        round_validation = executed == unit_test["expected-output"]
       rescue StandardError => e
         @current_error = e
         p "Error: #{e}"
       end
+      rake_insight = {
+                        to_be_evaluated: to_be_evaluated,
+                        executed: executed,
+                        unit_test: unit_test
+                      }
+      @rakes_insights << rake_insight
+      @exercice_validations += 1 if round_validation
     end
 
     puts "... end evaluating JS"
@@ -74,7 +82,9 @@ class SubmissionsController < ApplicationController
     @submission.attempts_count += 1
     @submission.save
 
-    if @submission.validation
+    @submission.validation = @rakes.length == @exercice_validations
+
+    if @submission.validation == true
       redirect_to submission_path(@submission)
     else
       render :edit
@@ -99,5 +109,4 @@ class SubmissionsController < ApplicationController
   def submission_params
     return params.require(:submission).permit(:user_code) #created_at etc?
   end
-
 end
