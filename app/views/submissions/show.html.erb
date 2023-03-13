@@ -1,6 +1,33 @@
-<h2>Exercice completed. Congrats!</h2>
-<h3>Will be modal? -- (exercice) submission show</h2>
+<br>
+<div class= "card-instruction">
+  <h2>Congratulations! You completed the exercise!</h2>
+
+  <div>
+    <p>Attempts: <%= @submission.attempts_count %></p>
+  </div>
+
+  <div>
+    <% if @submission.attempts_count > 3 %>
+      <p>If you took too many attempts to complete the exercise. Here are some tips to improve your performance:</p>
+      <ul>
+        <li>Read the instructions carefully before attempting the exercise.</li>
+        <li>Break down the problem into smaller parts.</li>
+        <li>Use debugging tools to find and fix errors in your code.</li>
+      </ul>
+    <% else %>
+      <p>Great job! You completed the exercice with ease.</p>
+    <% end %>
+  </div>
+</div>
+<br>
 
 <div>
-  <p>attempts: <%= @submission.attempts_count %></p>
+  <%= link_to "Retry Exercise", new_exercice_submission_path(exercice_id: @submission.exercice_id), class:"btn btn-primary" %>
+  <br>
+  <br>
+  <div class="social-media-sharing">
+    <a href="#" class="btn btn-twitter"> <i class="fa-brands fa-square-twitter"></i> Share on Twitter</a>
+    <a href="#" class="btn btn-facebook"> <i class="fa-brands fa-square-facebook"></i> Share on Facebook</a>
+    <a href="#" class="btn btn-linkedin"> <i class="fa-brands fa-linkedin"></i> Share on LinkedIn</a>
+  </div>
 </div>
