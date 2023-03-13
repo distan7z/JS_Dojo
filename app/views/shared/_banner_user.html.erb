@@ -15,6 +15,8 @@
       <h1><%= image_tag (asset_path("flags/#{@user.country.downcase}.png")), style: "width: 32px;" %> <%= @user.username %></h1>
       <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
       <p>TBD: Profile Biography?</p>
+      <p>Total Exp: <%=  @total_exp %></p>
+
       <% if current_user == @user %>
         <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
       <% end %>
@@ -24,5 +26,6 @@
     <% if @user.beginners_luck? %>
       <%= image_tag (asset_path("achievements/beginners_luck.png")), class: "avatar", style: "background: white;" %>
     <% end %>
+
   </div>
 </div>

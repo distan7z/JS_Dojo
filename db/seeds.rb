@@ -25,7 +25,7 @@ COUNTRY = [
 
 def new_users
   for i in (0..10)
-    User.create!(username: Faker::Internet.username, email: "user_#{i}@mail.com",password: "azerty", country: COUNTRY.sample)
+    User.create!(username: Faker::Internet.username, email: "user_#{i}@mail.com",password: "azerty", country: COUNTRY.sample, exp: rand(5..100))
   end
 end
 new_users
@@ -51,7 +51,6 @@ exercice1 = Exercice.create!(title: "Even or odd?",
 exercice2 = Exercice.create!(title: "Minutes To Second",
   details: "Example:
   minuteToSecond(4) ➞ 240
-
   minuteToSecond(3) ➞ 180",
   instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
   exp: 5,
@@ -64,9 +63,7 @@ exercice2 = Exercice.create!(title: "Minutes To Second",
 exercice3 = Exercice.create!(title: "Rest of numbers",
   details: "Example:
   remainDiv(1, 3) ➞ 1
-
   remainderDiv(2, 4) ➞ 2
-
   remainderDiv(3, 3) ➞ 0",
   instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
   exp: 5,

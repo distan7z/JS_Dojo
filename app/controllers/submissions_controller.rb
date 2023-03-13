@@ -80,9 +80,8 @@ class SubmissionsController < ApplicationController
     puts "... end evaluating JS"
 
     @submission.attempts_count += 1
-    @submission.save
-
     @submission.validation = @rakes.length == @exercice_validations
+    @submission.save
 
     if @submission.validation == true
       redirect_to submission_path(@submission)
