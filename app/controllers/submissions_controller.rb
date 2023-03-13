@@ -54,19 +54,27 @@ class SubmissionsController < ApplicationController
 
     puts "Begin evaluating JS..."
 
+    @rakes_insights = []
+
     @rakes.each do |unit_test|
       puts "unit test n°#{@rakes.find_index(unit_test)}"
       begin
         context = MiniRacer::Context.new
         to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
-        @executed = context.eval(to_be_evaluated)
-        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{@executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
-        @submission.validation = @executed == unit_test["expected-output"]
+        executed = context.eval(to_be_evaluated)
+        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
+        @submission.validation = executed == unit_test["expected-output"]
         puts "submission validation: #{@submission.validation}"
       rescue StandardError => e
         @current_error = e
         p "Error: #{e}"
       end
+      rake_insight = {
+                        to_be_evaluated: to_be_evaluated,
+                        executed: executed,
+                        unit_test: unit_test
+                      }
+      @rakes_insights << rake_insight
     end
 
     puts "... end evaluating JS"
