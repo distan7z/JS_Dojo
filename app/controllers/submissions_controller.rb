@@ -43,7 +43,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
     @exercice = Exercice.find(@submission.exercice_id)
 
-    @attempts_count && attempts_count.positive? ? @current_error = "(No errors)" : @current_error = "No errors (yet 🥲)"
+    @submission.attempts_count.zero? ? @current_error = "No errors (yet 🥲)" : @current_error = "(No errors)"
 
     begin
       @rakes = JSON.parse(@exercice.testing_code)
