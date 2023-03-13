@@ -14,9 +14,4 @@ class Submission < ApplicationRecord
       0
     end
   end
-
-  def total_experience
-    submissions.validated.includes(:exercice).sum(&:exp) + exp
-  end
-
 end
