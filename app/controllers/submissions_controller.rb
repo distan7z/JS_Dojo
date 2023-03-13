@@ -55,6 +55,7 @@ class SubmissionsController < ApplicationController
     puts "Begin evaluating JS..."
 
     @rakes_insights = []
+    @exercice_validations = 0
 
     @rakes.each do |unit_test|
       puts "unit test n°#{@rakes.find_index(unit_test)}"
@@ -62,9 +63,7 @@ class SubmissionsController < ApplicationController
         context = MiniRacer::Context.new
         to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
         executed = context.eval(to_be_evaluated)
-        puts "to be evaluated: #{to_be_evaluated}\n@executed: #{executed}\nunit_test['exepected-output']#{unit_test["expected-output"]}\n   ***   "
-        @submission.validation = executed == unit_test["expected-output"]
-        puts "submission validation: #{@submission.validation}"
+        round_validation = executed == unit_test["expected-output"]
       rescue StandardError => e
         @current_error = e
         p "Error: #{e}"
@@ -75,6 +74,7 @@ class SubmissionsController < ApplicationController
                         unit_test: unit_test
                       }
       @rakes_insights << rake_insight
+      @exercice_validations += 1 if round_validation
     end
 
     puts "... end evaluating JS"
@@ -82,7 +82,9 @@ class SubmissionsController < ApplicationController
     @submission.attempts_count += 1
     @submission.save
 
-    if @submission.validation
+    @submission.validation = @rakes.length == @exercice_validations
+
+    if @submission.validation == true
       redirect_to submission_path(@submission)
     else
       render :edit
@@ -107,5 +109,4 @@ class SubmissionsController < ApplicationController
   def submission_params
     return params.require(:submission).permit(:user_code) #created_at etc?
   end
-
 end

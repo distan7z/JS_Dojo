@@ -21,6 +21,12 @@
       <% end %>
     </div>
 
+    <% if @rakes %>
+      <div>
+        <p>Validations: <% @validations %> / <% @rakes.length %></p>
+      </div>
+    <% end %>
+
     <div>
       <h2>Output</h2>
       <div>
@@ -39,22 +45,27 @@
       </div>
     </div>
 
-    <div style="border: 1px solid gray; padding: 10px; margin-top: 30px;">
-      <h2>Insights</h2>
+    <% if @rakes_insights %>
+      <div style="border: 1px solid gray; padding: 10px; margin-top: 30px;">
+        <h2>Insights</h2>
 
-      <% @rakes_insights.each_with_index do |rake_insight, index| %>
+        <% @rakes_insights.each_with_index do |rake_insight, index| %>
 
-        <div>
-          <p>To be evaluated:  <br/> <%= rake_insight[:to_be_evaluated] if rake_insight[:to_be_evaluated] %></p>
-          <p>Executed:  <br/> <%= rake_insight[:executed] if rake_insight[:executed] %></p>
-          <p>Unit test: <br/> <%= rake_insight[:unit_test] if rake_insight[:unit_test] %></p>
-        </div>
+          <div>
+            <p>To be evaluated:  <br/> <%= rake_insight[:to_be_evaluated] ? rake_insight[:to_be_evaluated] : " ***nothing*** " %></p>
+            <p>Executed:  <br/> <%= rake_insight[:executed] ? rake_insight[:executed] : " ***nothing*** " %></p>
+            <p>Unit test: <br/> <%= rake_insight[:unit_test] ? rake_insight[:unit_test] : " ***nothing*** " %></p>
+          </div>
 
-        <% if index != @rakes_insights.length - 1%>
-        <hr>
+          <% if index != @rakes_insights.length - 1%>
+          <hr>
+          <% end %>
+
         <% end %>
 
-      <% end %>
+      </div>
+  <% end %>
 
-  </div>
+  <br>
+
 </div>
