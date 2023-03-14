@@ -1,62 +1,70 @@
-<br>
-<section id="hero-banner">
-  <div class="banner">
-    <div class="container">
-      <div class="hero-content">
-        <img src="<%= asset_path('icons/undraw_command-line.svg') %>" alt="training">
-        <h2>Train Your Javascript Skills!</h2>
-        <p>Get better at Javascript through fun and interactive challenges. Earn points,
-        badges, and climb the rankings.</p>
-        <%= link_to 'Start Training Now', exercices_path, class: 'custom-hover' %>
+<div id="homepage-banners">
+  <section class="hero-banner">
+    <div class="banner py-3 pt-3">
+      <div class="container">
+        <div class="hero-content">
+          <img src="<%= asset_path('icons/undraw_command-line.svg') %>" alt="training" class="my-3">
+          <h2>Train Your Javascript Skills!</h2>
+          <p>Get better at Javascript through fun and interactive challenges. Earn points,
+          badges, and climb the rankings.</p>
+          <%= link_to 'Start Training Now', exercices_path, class: 'custom-hover' %>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section id="challenges-banner">
-  <div class="banner-right">
-    <div class="container">
-      <div class="challenges-content">
-        <img src="<%= asset_path('icons/undraw_note.svg') %>" alt="challenges">
-        <h2>Challenges</h2>
-        <p>Choose from a variety of coding challenges, quizzes and projects.
-        New challenges are added regularly to keep the platform fresh and engaging.</p>
-        <a href="#" class="custom-hover">See this week's challenges</a>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="hero-banner">
-  <div class="banner">
-    <div class="container">
-      <div class="leaderboards-content">
-        <img src="<%= asset_path('icons/undraw_rocket.svg') %>" alt="leaderboard">
-        <h2>Leaderboards</h2>
-        <p>See how you stack up against other users on the platform.
-        Climb the ranks and compete for the top spot.</p>
-        <%= link_to 'View Leaderboards', users_path, class: 'custom-hover' %>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<br>
-<hr>
-<br>
+  <section class="challenges-banner">
+    <div class="banner-right py-3">
+      <div class="container">
+        <div class="challenges-content">
+          <img src="<%= asset_path('icons/undraw_note.svg') %>" alt="challenges" class="my-1">
+          <h2>Challenges</h2>
+          <p>Choose from a variety of coding challenges, quizzes and projects.
+          New challenges are added regularly to keep the platform fresh and engaging.</p>
+          <a href="#" class="custom-hover">See this week's challenges</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="testimonials-banner">
+  <section class="hero-banner">
+    <div class="banner py-3 pb-3">
+      <div class="container">
+        <div class="leaderboards-content">
+          <img src="<%= asset_path('icons/undraw_rocket.svg') %>" alt="leaderboard" class="my-1">
+          <h2>Leaderboards</h2>
+          <p>See how you stack up against other users on the platform.
+          Climb the ranks and compete for the top spot.</p>
+          <%= link_to 'View Leaderboards', users_path, class: 'custom-hover' %>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="banner py-3">
+  <hr>
+</div>
+
+
+<section id="testimonials-section">
   <div class="banner">
     <div class="container">
       <div class="testimonials-content container">
         <div class="testimonials-list row">
           <div class="testimonial col-6">
-            <p>"I feel like a coding superstar when I'm on this website. The challenges are engaging and the leaderboard adds a fun competitive element to my learning."</p>
-            <div class="testimonial-author d-flex col justify-content-center">
-              <img src="<%= asset_path('user1.jpg') %>" alt="author" width=64 style="border-radius:50%;">
+            <div class="testimonial-text">
+              <p>"I feel like a coding superstar when I'm on this website. The challenges are engaging and the leaderboard adds a fun competitive element to my learning."</p>
+            </div>
+            <div class="testimonial-author">
+              <img src="<%= asset_path('user1.jpg') %>" alt="author" width=64">
               <p>John Doe</p>
             </div>
           </div>
           <div class="testimonial col-6">
-            <p>"I was a beginner in Javascript when I started using JS Dojo, and now I feel confident enough to tackle more complex projects. Highly recommend this platform!"</p>
+            <div class="testimonial-text">
+              <p>"I was a beginner in Javascript when I started using JS Dojo, and now I feel confident enough to tackle more complex projects. Highly recommend this platform!"</p>
+            </div>
             <div class="testimonial-author">
               <img src="<%= asset_path('user2.png') %>" alt="author" width=64 style="border-radius:50%;">
               <p>Jane Smith</p>
@@ -67,6 +75,12 @@
     </div>
   </div>
 </section>
+
+<div class="banner py-3 pb-3">
+  <hr>
+</div>
+
+
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-instagram"></i></a>
