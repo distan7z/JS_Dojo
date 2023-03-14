@@ -25,7 +25,11 @@ COUNTRY = [
 
 def new_users
   for i in (0..10)
-    User.create!(username: Faker::Internet.username, email: "user_#{i}@mail.com",password: "azerty", country: COUNTRY.sample, exp: rand(5..100))
+    User.create!(username: Faker::Internet.username,
+         email: "user_#{i}@mail.com",
+         password: "azerty",
+         country: COUNTRY.sample,
+         exp: rand(5..110))
   end
 end
 new_users
@@ -73,6 +77,160 @@ exercice3 = Exercice.create!(title: "Rest of numbers",
   }
   " )
 
+exercice4 = Exercice.create!(title: "Current day and time",
+  details: "",
+  instructions: "Write a JavaScript program to display the current day and time.",
+   exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice5 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program that accepts two integers and displays the larger.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+
+exercice6 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+     return a % b;
+   }
+  " )
+
+exercice7 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice8 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice9 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice10 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice11 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice12 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice13 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+exercice14 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
+
+
+exercice15 = Exercice.create!(title: "Rest of numbers",
+  details: "Example:
+  remainDiv(1, 3) ➞ 1
+  remainderDiv(2, 4) ➞ 2
+  remainderDiv(3, 3) ➞ 0",
+  instructions: "Write a JavaScript program to return the rest of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
+  exp: 5,
+  testing_code: File.read("#{exercices_path}restOfNumbers.json"),
+  solution: "function resteDiv(a, b) {
+    return a % b;
+  }
+  " )
 
 puts "Creating submissions..."
 Submission.create!(attempts_count: 1, validation: false, user_id: User.first.id, exercice_id: Exercice.first.id)

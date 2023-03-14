@@ -13,23 +13,17 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def total_experience
-    submissions.validated.includes(:exercice).sum(&:exp) + exp
+    submissions.validated.includes(:exercice).sum(&:exp) + expx
   end
-
-  # def experience
-  #   exercices.joins(:submissions).where(submissions: { validation: true }).map(&:exp).sum
-  # end
 
   def beginners_luck?
     submissions.validated.where(attempts_count: 1).any?
   end
 
-
   def completion_achievements
    #si current_user réussit 10, 50, 100 exercices.
    #alors il décroche un badge
   end
-
 
   def accuracy_achievements
     # submissions.validated.where(attempts_count: 1)
@@ -42,9 +36,14 @@ class User < ApplicationRecord
     #alors il décroche un badge
   end
 
-
   def badge_achievements
     #si current_user réussit a avoir les badges suivants
     #alors il décroche un badge
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :country, :exp)
   end
 end

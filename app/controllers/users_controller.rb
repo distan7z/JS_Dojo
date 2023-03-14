@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-     @users = User.order("exp DESC NULLS LAST")
+    @users = User.order("exp DESC NULLS LAST")
                 #  .select('users.*, SUM(COALESCE(submissions.exp, 0)) + users.exp AS total_exp')
-                #  .where(submissions: {validation: true})
                 #  .group('users.id')
-                #  .order('total_exp DESC')
+                #  .order('total_exp DESC'
+    console
   end
 
   def show

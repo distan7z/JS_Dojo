@@ -84,6 +84,9 @@ class SubmissionsController < ApplicationController
     @submission.save
 
     if @submission.validation == true
+      user = @submission.user
+      user.exp += @submission.exercice.exp
+      user.save
       redirect_to submission_path(@submission)
     else
       render :edit
