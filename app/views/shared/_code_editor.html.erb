@@ -21,9 +21,12 @@ Enter your code
       </div>
     <div id="sub-editor-div">
       <div id="editor-form">
-        <%= simple_form_for [@exercice, @submission] do |f| %>
+        <%= simple_form_for [@exercice, @submission], html: { data: { editor_target: "form"} } do |f| %>
+          <%#= f.input :user_code, input_html: {class: 'input-color', data: {editor_target: "input"}} %>
+
           <%= f.hidden_field :user_code, class: 'input-color', data: {editor_target: "input"}%>
-          <%= f.button :submit, 'Run', class: 'btn btn-success m-3', data: { action: "click->editor#submit_code" } %>
+          <%= f.button :submit, 'Run', class: 'btn btn-success m-3', data: { action: "click->editor#submitCode" } %>
+          <%# <button type="button" data-action="click->editor#submitCode" class="btn btn-success m-3">coucou</button> %>
         <% end %>
       </div>
     <% if @rakes %>
