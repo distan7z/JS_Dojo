@@ -12,13 +12,15 @@
     </div>
   </div>
 
-  <div class="col-md-8 ">
+  <div class="col-md-8" data-controller="editor">
     <h2>Your solution</h2>
     <div id="ace-div">
-          <code id="ace-editor">/*
+          <code id="ace-editor" data-editor-target="editor">/*
 Enter your code here
 */</code>
     </div>
+
+    <button class="btn btn-success m-2" data-action="click->editor#submit_code">Run</button>
 
     <% if @rakes %>
       <div>
@@ -83,7 +85,6 @@ Enter your code here
     editor.setTheme(theme);
     editor.getSession().setMode(mode);
     // editor.renderer.setShowGutter(false);
-    console.log(editor);
     $("#ace-mode").on("change", function () {
     editor.getSession().setMode("ace/mode/" + $(this).val().toLowerCase());
     });
