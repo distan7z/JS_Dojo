@@ -15,18 +15,21 @@
 // padding-inline is horizontal padding
 
 h1{
+  font-family: 'JetBrains Mono', monospace;
   padding-block: 20;
   padding-inline: 10;
   color: white;
 }
 
 h2{
+  font-family: 'JetBrains Mono', monospace;
   padding-block: 20;
   padding-inline: 10;
   color: white;
 }
 
 p{
+  font-family: 'Roboto', sans-serif;
   color: whitesmoke;
 }
 
@@ -38,6 +41,7 @@ p{
 
 
 a {
+  font-family: 'JetBrains Mono', monospace;
   text-decoration: none;
   color: white;
 }
