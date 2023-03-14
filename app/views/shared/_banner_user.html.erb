@@ -4,7 +4,7 @@
   <% background_url = asset_path "default_banner.jpg" %>
 <% end %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8),rgba(0,0,0,0.9),rgba(0,0,0,1)), url(<%= background_url %>);">
+<div class="banner-user" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8),rgba(0,0,0,0.9),rgba(0,0,0,1)), url(<%= background_url %>);">
   <div class="container">
     <div class="user-info">
       <% if @user.avatar.attached? %>

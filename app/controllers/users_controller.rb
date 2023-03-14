@@ -4,7 +4,6 @@ class UsersController < ApplicationController
                 #  .select('users.*, SUM(COALESCE(submissions.exp, 0)) + users.exp AS total_exp')
                 #  .group('users.id')
                 #  .order('total_exp DESC'
-    console
   end
 
   def show
