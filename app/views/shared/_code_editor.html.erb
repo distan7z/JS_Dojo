@@ -15,12 +15,14 @@
   <div class="col-md-8" data-controller="editor">
       <h2>Your solution</h2>
       <div id="ace-div">
-        <code id="ace-editor" data-editor-target="editor">/*Enter your code here*/</code>
+        <code id="ace-editor" data-editor-target="editor"><% if !@submission.user_code %>/*
+Enter your code
+*/<% else %><%= @submission.user_code %><% end %></code>
       </div>
     <div id="sub-editor-div">
       <div id="editor-form">
         <%= simple_form_for [@exercice, @submission] do |f| %>
-          <%= f.hidden_field :user_code, class: 'input-color'%>
+          <%= f.hidden_field :user_code, class: 'input-color', data: {editor_target: "input"}%>
           <%= f.button :submit, 'Run', class: 'btn btn-success m-3', data: { action: "click->editor#submit_code" } %>
         <% end %>
       </div>
