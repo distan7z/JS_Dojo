@@ -14,14 +14,21 @@
           </div>
           <div>
             <span style="display: flex">
-              <%= link_to  new_exercice_submission_path(exercice) do %>
+            <% if exercice.has_submission?(current_user) %>
+              <%= link_to edit_exercice_submission_path(exercice, exercice.user_submission(current_user)) do %>
                 <h3><%= exercice.title %></h3>
               <% end %>
-              <%exercice.tags.each do |tag|%>
-                <div class= "tag rounded-pill text-bg-warning mx-2">
-                  <p><%= tag.title %></p>
-                </div>
+            <% else %>
+              <%= link_to new_exercice_submission_path(exercice) do %>
+                <h3><%= exercice.title %></h3>
               <% end %>
+            <% end %>
+
+            <%exercice.tags.each do |tag|%>
+              <div class= "tag rounded-pill text-bg-warning mx-2">
+                <p><%= tag.title %></p>
+              </div>
+            <% end %>
             </span>
             <p>Instruction : <%= exercice.instructions.first(170)%> [...] </p>
             <p>Exp : <strong><%= exercice.exp%></strong> </p>
