@@ -27,26 +27,24 @@ class User < ApplicationRecord
   end
 
   def completion_achievements
-   #si current_user réussit 10, 50, 100 exercices.
-   #alors il décroche un badge
+    #si current_user réussit 10, 50, 100 exercices.
+    #alors il décroche un Achievement
   end
 
   def accuracy_achievements
-    # submissions.validated.where(attempts_count: 1)
     #si current_user réussit 10 exercices avec un attempts_count: 1
-    #alors il décroche un badge
+    #alors il décroche un Achievement
   end
 
   def leaderboard_achievements_15
     #si current_user réussit a se classer dans les 15 premiers
-    #alors il décroche un badge
+    #alors il décroche un Achievement
   end
 
   def badge_achievements
-    #si current_user réussit a avoir les badges suivants
-    #alors il décroche un badge
+    #si current_user réussit a avoir les Achievement précédent
+    #alors il décroche un Achievement
   end
-
   private
 
   def user_params

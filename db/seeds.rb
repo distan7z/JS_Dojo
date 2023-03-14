@@ -183,7 +183,7 @@ exercice10 = Exercice.create!(title: "Find the factorial of a numbe",
   }
   " )
 
-exercice11 = Exercice.create!(title: "Count the number of vowels in a string:",
+exercice11 = Exercice.create!(title: "Count the number of vowels in a string",
   details: "Think about how you can use a loop to iterate over the characters in the string, and then use conditional statements to check if each character is a vowel. You will need to initialize a counter variable before the loop starts.",
   instructions: "Write a function that takes a string as an argument and returns the number of vowels (a, e, i, o, u) in the string.",
   exp: 15,
@@ -200,7 +200,7 @@ exercice11 = Exercice.create!(title: "Count the number of vowels in a string:",
   }
   " )
 
-exercice12 = Exercice.create!(title: "Flatten an array:",
+exercice12 = Exercice.create!(title: "Flatten an array",
   details: "Think about how you can use nested loops to iterate over the arrays in the input array, and then concatenate the elements from the sub-arrays into a new array.",
   instructions: "Write a function that takes an array of arrays as an argument and returns a new array that is the flattened version of the original array (all elements from all sub-arrays concatenated into a single array).",
   exp: 10,
@@ -303,9 +303,6 @@ Tag.create!(title: "String", exercice: exercice2)
 Tag.create!(title: "String", exercice: exercice6)
 Tag.create!(title: "String", exercice: exercice7)
 Tag.create!(title: "String", exercice: exercice8)
-Tag.create!(title: "String", exercice: exercice11)
-Tag.create!(title: "String", exercice: exercice14)
-
 Tag.create!(title: "Sorting", exercice: exercice13)
 Tag.create!(title: "Date Time", exercice: exercice3)
 Tag.create!(title: "Express", exercice: exercice3)
