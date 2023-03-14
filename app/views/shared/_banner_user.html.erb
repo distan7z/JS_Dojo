@@ -22,21 +22,11 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <% if @user.beginners_luck? %>
-      <%= image_tag (asset_path("achievements/beginners_luck.png")), class: "avatar", style: "background: white;" %>
-    <% end %>
-
-
-    completion_achievements
-
-    accuracy_achievements
-
-    leaderboard_achievements_15
-
-    badge_achievements
-
-
-
-  </div>
+  <% if @user.beginners_luck? %>
+    <%= image_tag (asset_path("achievements/beginners_luck.png")), class: "avatar", style: "background: white;" %>
+  <% end %>
+  <%= image_tag (asset_path("achievements/completion_achievements.png")), class: "avatar-badge-opacity", style: "background: white;" %>
+  <%= image_tag (asset_path("achievements/accuracy_achievements.jpg")), class: "avatar-badge-opacity", style: "background: white;" %>
+  <%= image_tag (asset_path("achievements/basics_completed.png")), class: "avatar-badge-opacity", style: "background: white;" %>
+  <%= image_tag (asset_path("achievements/five_array.png")), class: "avatar-badge-opacity", style: "background: white;" %>
 </div>

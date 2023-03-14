@@ -26,33 +26,22 @@ class User < ApplicationRecord
     submissions.validated.where(attempts_count: 1).any?
   end
 
-  def leaderboard_position
-
-  end
-
-
-  def completion_achievements(user)
+  def completion_achievements
     #si current_user réussit 10, 50, 100 exercices.
     #alors il décroche un Achievement
-    exercises_completed = user.attempts.distinct.count(:exercise_id)
   end
 
-  end
-
-  def accuracy_achievements(user)
+  def accuracy_achievements
     #si current_user réussit 10 exercices avec un attempts_count: 1
     #alors il décroche un Achievement
-     exercises = user.attempts.where(attempts_count: 1).distinct(:exercise_id)
-     exercises.count >= 10
   end
 
-  def leaderboard_achievements_15(user)
+  def leaderboard_achievements_15
     #si current_user réussit a se classer dans les 15 premiers
     #alors il décroche un Achievement
-     user.leaderboard_position <= 15
   end
 
-  def badge_achievements(user)
+  def badge_achievements
     #si current_user réussit a avoir les Achievement précédent
     #alors il décroche un Achievement
   end
