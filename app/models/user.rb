@@ -8,16 +8,48 @@ class User < ApplicationRecord
   acts_as_favoritor
   has_one_attached :avatar
   has_one_attached :banner_picture
+  has_many :exercices, through: :submissions
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+
+  def total_experience
+    submissions.validated.includes(:exercice).sum(&:exp) + expx
+  end
 
   def streak
     submissions.validated.where("created_at > ?", 1.day.ago).count
   end
 
-
   def beginners_luck?
     submissions.validated.where(attempts_count: 1).any?
+  end
+
+  def completion_achievements
+   #si current_user réussit 10, 50, 100 exercices.
+   #alors il décroche un badge
+  end
+
+  def accuracy_achievements
+    # submissions.validated.where(attempts_count: 1)
+    #si current_user réussit 10 exercices avec un attempts_count: 1
+    #alors il décroche un badge
+  end
+
+  def leaderboard_achievements_15
+    #si current_user réussit a se classer dans les 15 premiers
+    #alors il décroche un badge
+  end
+
+  def badge_achievements
+    #si current_user réussit a avoir les badges suivants
+    #alors il décroche un badge
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :country, :exp)
   end
 end
