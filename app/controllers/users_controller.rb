@@ -9,7 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
     @submissions = @user.submissions.validated.includes(:exercice)
     @total_exp = @submissions.sum(&:exp) + @user.exp
+    @finished_exercices = Submission.where(user: current_user, validation: true)
+
   end
 end

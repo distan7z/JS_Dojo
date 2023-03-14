@@ -1,2 +1,5 @@
-<%# This is the view for the show action %>
-<%# The show action is used to display a single user %>
+<h2>Your validated exercices</h2>
+
+<% @finished_exercices.each do |finished_exercice| %>
+    <%= link_to finished_exercice.exercice.title, exercice_submission_path(finished_exercice.exercice, finished_exercice) %>
+<% end %>
