@@ -1,0 +1,3 @@
+<%= turbo_stream.update "like_#{dom_id(@exercice)}" do %>
+  <%= render partial: 'exercices/partials/like_button', locals: { exercice: @exercice } %>
+<% end %>
