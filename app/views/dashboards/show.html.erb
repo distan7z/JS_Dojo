@@ -1,46 +1,38 @@
-<div id="dashboard">
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Resume Unfinished Exercises</h2>
-        <ul class="list-unstyled">
-          <% @unfinished_exercices.each do |unfinished_exercice| %>
-            <li><%= link_to unfinished_exercice.exercice.title, edit_exercice_submission_path(unfinished_exercice.exercice, unfinished_exercice) %></li>
-          <% end %>
-        </ul>
+<br>
+<div class="parent">
+  <div class="lastplayed">
+      <div class="card-product d-flex">
+        <h2>Resume last exercise</h2>
+        <% if @last_unfinished_submission %>
+          <%= link_to @last_unfinished_submission.exercice.title, edit_exercice_submission_path(@last_unfinished_submission.exercice, @last_unfinished_submission) %>
+          <p><%= @last_unfinished_submission.exercice.instructions %></p>
+        <% end %>
       </div>
-      <div class="col-md-6">
-        <h2>Start a Random Exercise</h2>
-        <%= link_to "Random Exercice", exercice_path(@never_tried.sample), class: 'btn btn-primary' %>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Total Wins</h2>
-        <p><%= @total_wins %></p>
-      </div>
-      <div class="col-md-6">
-        <h2>Today's Streak:</h2>
-          <% if @streak == 0 %>
-            <p>Start a new exercise and try to get the highest streak!</p>
-          <% else %>
-            <%= @streak %>
-          <% end %>
-      </div>
-      <hr>
-      <br>
-    </div>
-    <div class="row">
-      <h2>Featured Streams</h2>
-        <div class="col-md-6">
-          <iframe src="https://player.twitch.tv/?channel=babadesbois&parent=localhost&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="189" width="310"></iframe>
-          <iframe src="https://player.twitch.tv/?channel=aqueuse&parent=localhost&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="189" width="310"></iframe>
-        </div>
-        <div class="col-md-6">
-          <iframe src="https://player.twitch.tv/?channel=matiasbaldanza&parent=localhost&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="189" width="310"></iframe>
-          <br>
-          <iframe src="https://player.twitch.tv/?channel=elysiagriffin&parent=localhost&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="189" width="310"></iframe>
-        </div>
+  </div>
+  <div class="currentxp">
+    <h2>Total Wins</h2>
+      <p><%= @total_wins %> games won</p>
+    <h2>Ranking</h2>
+      <p>Coming Soon</p>
+    <h2>User Exp</h2>
+      <p>Coming Soon</p>
+    <h2>Today's Streak</h2>
+      <% if @streak == 0 %>
+        <p>Start a new exercise and try to get the highest streak!</p>
+      <% else %>
+        <%= @streak %>
+      <% end %>
+  </div>
+  <div class="streams">
+    <h2>Featured Streams</h2>
+      <iframe src="https://player.twitch.tv/?channel=elysiagriffin&parent=localhost&autoplay=false" frameborder="0" allowfullscreen="true" scrolling="no" height="189" width="310"></iframe>
+  </div>
+  <div class="random">
+    <h2>Start a Random Exercise</h2>
+    <%= link_to "Random Exercice", exercice_path(@never_tried.sample), class: 'btn btn-primary' %>
+  </div>
+  <div class="challenges">
+    <h2>Challenges</h2>
+    <p>Coming Soon</p>
   </div>
 </div>

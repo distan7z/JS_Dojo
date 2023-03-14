@@ -24,7 +24,11 @@
             <%= link_to "Leaderboards", users_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown" style="padding-left: 3rem !important;">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.avatar.attached? %>
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRfqbrNkFoQ9fHlVLzspRucA3IGO41dFfxBruXwy_WED3gyp_iMljq9_8bUQjb1VOTEDt1oISRM1io1Qoo5WlQ", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Friends", "#", class: "dropdown-item" %>

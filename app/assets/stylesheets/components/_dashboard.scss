@@ -1,0 +1,12 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 30px;
+  }
+  .lastplayed { grid-area: 1 / 1 / 2 / 2; }
+  .challenges { grid-area: 1 / 3 / 3 / 4; }
+  .currentxp { grid-area: 1 / 2 / 2 / 3; }
+  .random { grid-area: 2 / 1 / 3 / 2; }
+  .streams { grid-area: 2 / 2 / 3 / 3; }
