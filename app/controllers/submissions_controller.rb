@@ -61,6 +61,7 @@ class SubmissionsController < ApplicationController
       puts "unit test n°#{@rakes.find_index(unit_test)}"
       begin
         context = MiniRacer::Context.new
+        # debugger
         to_be_evaluated = @submission.user_code + "\n" + unit_test["input"]
         executed = context.eval(to_be_evaluated)
         round_validation = executed == unit_test["expected-output"]
