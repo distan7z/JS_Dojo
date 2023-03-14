@@ -33,10 +33,11 @@
   </div>
 </div>
 
-  <% if @user.beginners_luck? %>
+  <% if current_user.beginners_luck? %>
     <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-    <span><strong>🏆 Achivement completed !</strong></span>
-    <a data-bs-dismiss="alert" aria-label="Close">
-      <i class="fas fa-times"></i>
-    </a>
+      <span><strong>🏆 Achivement completed !</strong>&nbsp;</span>
+      <a data-bs-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
   <% end %>
