@@ -3,8 +3,8 @@
       <h2>Your validated exercices</h2>
       <div class="m-4">
         <% @finished_exercices.each do |finished_exercice| %>
-          <h6><%= link_to finished_exercice.exercice.title, exercice_submission_path(finished_exercice.exercice, finished_exercice) %></h6>
-          <p><%= finished_exercice.exercice.instructions %></p>
+          <li><%= link_to finished_exercice.exercice.title, edit_exercice_submission_path(finished_exercice.exercice, finished_exercice) %></li>
+          <li><%= finished_exercice.exercice.instructions %></li>
         <% end %>
       </div>
     </div>
