@@ -1,0 +1,9 @@
+.bookmarks {
+  color: $js-yellow;
+}
+
+.like-icon{
+  &:hover {
+    color: $js-yellow;
+  }
+}
