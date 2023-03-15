@@ -1,8 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="card-instruction">
-    <h1>La Solution :</h1>
-    <p> <%= @exercice.solution%> </p>
+  </div>
+</div>
 
+<div class="card-product d-flex p-3">
+  <div>
+    <span class="d-flex">
+    <% if @exercice.has_submission?(current_user) %>
+      <%= link_to edit_exercice_submission_path(@exercice, @exercice.user_submission(current_user)) do %>
+        <h3><%= @exercice.title %></h3>
+      <% end %>
+    <% else %>
+      <%= link_to new_exercice_submission_path(@exercice) do %>
+        <h3><%= @exercice.title %></h3>
+      <% end %>
+    <% end %>
+
+    <%@exercice.tags.each do |tag|%>
+      <div class="tag rounded-pill text-bg-warning mx-2">
+        <p><%= tag.title %></p>
+      </div>
+    <% end %>
+    </span>
+    <p>Instruction : <%= @exercice.instructions %></p>
+    <p>Exp : <strong><%= @exercice.exp %></strong> </p>
   </div>
 </div>
