@@ -16,7 +16,7 @@
     </div>
     <div class="mb-5">
       <h2>Ranking</h2>
-      <p><%= @current_user_rank %> out of <%= @users_count %> players !</p>
+      <p><%= ordinal_indicator(@current_user_rank) %> out of <%= @users_count %> players !</p>
     </div>
     <div class="mb-5">
       <h2>Total XP</h2>
