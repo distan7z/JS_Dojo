@@ -6,27 +6,39 @@
 
 <div class="banner-user" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8),rgba(0,0,0,0.9),rgba(0,0,0,1)), url(<%= background_url %>);">
   <div class="container">
-    <div class="user-info">
-      <% if @user.avatar.attached? %>
-        <%= cl_image_tag @user.avatar.key, height: 80, width: 90, crop: :thumb %>
-      <% else %>
-        <%= image_tag (asset_path("default_picture.jpeg")), height: 90, width: 90 %>
-      <% end %>
-      <h1><%= image_tag (asset_path("flags/#{@user.country.downcase}.png")), style: "width: 32px;" %> <%= @user.username %></h1>
-      <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
-      <p>TBD: Profile Biography?</p>
-      <p>Total Exp: <%= @user.exp %></p>
+      <div class="user-info row">
+        <div class="user-left-panel col-8">
+        <% if @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar.key, height: 80, width: 90, crop: :thumb %>
+        <% else %>
+          <%= image_tag (asset_path("default_picture.jpg")), height: 90, width: 90 %>
+        <% end %>
+        <h1><%= image_tag (asset_path("flags/#{@user.country.downcase}.png")), style: "width: 32px;" %> <%= @user.username %></h1>
+        <!-- <span class="fi fi-gr"></span> FLAG ICONS? -->
+        <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
+        <p>TBD: Profile Biography?</p>
+        <p>Total Exp: <%= @user.exp %></p>
 
-      <% if current_user == @user %>
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-      <% end %>
+        <% if current_user == @user %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
+        </div>
+        <div class="user-right-panel col-4">
+          <div>
+          <h4>My Achievements</h4>
+          </div>
+          <div class="achievements">
+          <% if @user.beginners_luck? %>
+            <%= image_tag (asset_path("achievements/beginners_luck.png")), class: "badge", style: "background: white;" %>
+          <% end %>
+          <p>Ici mettre achievements qu'on voudra montrer de façon arbitraire -> mettre opacité à 1 pour eux</p>
+          <%= image_tag (asset_path("achievements/completion_achievements.png")), class: "badge-opacity", style: "background: white;" %>
+          <%= image_tag (asset_path("achievements/accuracy_achievements.jpg")), class: "badge-opacity", style: "background: white;" %>
+          <%= image_tag (asset_path("achievements/basics_completed.png")), class: "badge-opacity", style: "background: white;" %>
+          <%= image_tag (asset_path("achievements/five_array.png")), class: "badge-opacity", style: "background: white;" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <% if @user.beginners_luck? %>
-    <%= image_tag (asset_path("achievements/beginners_luck.png")), class: "badge", style: "background: white;" %>
-  <% end %>
-  <%= image_tag (asset_path("achievements/completion_achievements.png")), class: "badge-opacity", style: "background: white;" %>
-  <%= image_tag (asset_path("achievements/accuracy_achievements.jpg")), class: "badge-opacity", style: "background: white;" %>
-  <%= image_tag (asset_path("achievements/basics_completed.png")), class: "badge-opacity", style: "background: white;" %>
-  <%= image_tag (asset_path("achievements/five_array.png")), class: "badge-opacity", style: "background: white;" %>
 </div>

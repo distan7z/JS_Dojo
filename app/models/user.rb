@@ -49,6 +49,7 @@ class User < ApplicationRecord
     #si current_user réussit a avoir les Achievement précédent
     #alors il décroche un Achievement
   end
+
   private
 
   def user_params
