@@ -34,7 +34,7 @@ Enter your code
           <%#= f.input :user_code, input_html: {class: 'input-color', data: {editor_target: "input"}} %>
 
           <%= f.hidden_field :user_code, class: 'input-color', data: {editor_target: "input"}%>
-          <%= f.button :submit, 'Run', class: 'btn btn-success m-3', data: { action: "click->editor#submitCode" } %>
+          <%= f.button :submit, '> Run', class: 'btn btn-success m-3', data: { action: "click->editor#submitCode" } %>
           <%# <button type="button" data-action="click->editor#submitCode" class="btn btn-success m-3">coucou</button> %>
         <% end %>
       </div>
