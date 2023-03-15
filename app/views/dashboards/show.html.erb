@@ -13,9 +13,9 @@
     <h2>Total Wins</h2>
       <p><%= @total_wins %> games won</p>
     <h2>Ranking</h2>
-      <p>Coming Soon</p>
-    <h2>User Exp</h2>
-      <p>Coming Soon</p>
+      <p><%= @current_user_rank %></p>
+    <h2>Total XP</h2>
+      <p><%= current_user.exp %></p>
     <h2>Today's Streak</h2>
       <% if @streak == 0 %>
         <p>Start a new exercise and try to get the highest streak!</p>

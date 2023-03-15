@@ -26,6 +26,10 @@ class User < ApplicationRecord
     submissions.validated.where(attempts_count: 1).any?
   end
 
+  def rank
+    User.order("exp DESC NULLS LAST").index(self) + 1
+  end
+
   def completion_achievements
     #si current_user réussit 10, 50, 100 exercices.
     #alors il décroche un Achievement
