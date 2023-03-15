@@ -33,7 +33,14 @@
     <%= link_to "Random Exercise", exercice_path(@never_tried.sample), class: 'btn btn-primary' %>
   </div>
   <div class="challenges">
-    <h2>Challenges</h2>
-    <p>Coming Soon</p>
+    <h2>Achievements</h2>
+    <%= image_tag (asset_path("achievements/ActiveUser.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px" %>
+    <%= image_tag (asset_path("achievements/Bookmarker.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/Champ.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px" %>
+    <%= image_tag (asset_path("achievements/Grandmaster.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/NoLife.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/Ready2Code.png")), class: "badge-opacity", width: "40px" %>
   </div>
 </div>
