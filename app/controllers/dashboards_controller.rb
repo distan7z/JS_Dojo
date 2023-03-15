@@ -5,5 +5,6 @@ class DashboardsController < ApplicationController
     @total_wins = User.find(current_user.id).submissions.where(validation: true).count
     @never_tried = Exercice.excluding(current_user.exercices)
     @current_user_rank = current_user.rank
+    @users_count = User.count
   end
 end
