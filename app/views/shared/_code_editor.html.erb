@@ -3,15 +3,18 @@
     <div class="card-instruction">
       <h4>Instructions: </h4>
       <p><%= @exercice.instructions %></p>
+      <p>Warning: your function must be nammed</p>
+      <hr>
+      <p>EXP earned on completion: <%= @exercice.exp %></p>
     </div>
 
     <div class="card-instruction">
       <h4>Details: </h4>
       <p><%= @exercice.details %></p>
-      <h4>XP: </h4>
-      <p><%= @exercice.exp %></p>
       <p style="color: black !important">solution: <%= @exercice.solution %></p>
     </div>
+
+
   </div>
 
   <div class="col-md-8" data-controller="editor">
