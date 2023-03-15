@@ -72,7 +72,8 @@ class SubmissionsController < ApplicationController
       rake_insight = {
                         to_be_evaluated: to_be_evaluated,
                         executed: executed,
-                        unit_test: unit_test
+                        unit_test: unit_test,
+                        round_validation: round_validation
                       }
       @rakes_insights << rake_insight
       @exercice_validations += 1 if round_validation
