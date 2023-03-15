@@ -27,9 +27,7 @@
         </div>
       </div>
       <div id="ace-div">
-        <code id="ace-editor" data-editor-target="editor"><% if !@submission.user_code %>/*
-Enter your code
-*/<% else %><%= @submission.user_code %><% end %></code>
+        <code id="ace-editor" data-editor-target="editor"><% if !@submission.user_code %><%= @exercice.function_name %><% else %><%= @submission.user_code %><% end %></code>
       </div>
     <div id="sub-editor-div">
       <div id="editor-form">
