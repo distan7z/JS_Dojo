@@ -44,9 +44,9 @@ a {
   font-family: 'JetBrains Mono', monospace;
   text-decoration: none;
   color: white;
-  // :hover{
-  //   color: whitesmoke;
-  // }
+  :hover{
+    color: $js-yellow;
+  }
 }
 
 #submission_user_code{
