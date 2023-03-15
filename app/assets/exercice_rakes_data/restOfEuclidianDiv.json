@@ -1,0 +1,22 @@
+[
+  {
+    "input" : "restOfEuclidianDiv(1, 3);",
+    "expected-output": 1
+  },
+  {
+    "input" : "restOfEuclidianDiv(3, 3);",
+    "expected-output": 2
+  },
+  {
+    "input" : "restOfEuclidianDiv(-1, 3);",
+    "expected-output": -1
+  },
+  {
+    "input" : "restOfEuclidianDiv(0, 3);",
+    "expected-output": 0
+  },
+  {
+    "input" : "restOfEuclidianDiv(7832, 24);",
+    "expected-output": 8
+  }
+]
