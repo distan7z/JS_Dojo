@@ -1,19 +1,28 @@
 <div class="row">
   <div class="col-md-4 ">
     <div class="card-instruction">
-      <p>Instructions : <%= @exercice.instructions %></p>
-      <p>user attempts: <%= @submission.attempts_count %></p>
+      <h4>Instructions: </h4>
+      <p><%= @exercice.instructions %></p>
     </div>
 
     <div class="card-instruction">
-      <p>Details : <%= @exercice.details %></p>
-      <p>XP: <%= @exercice.exp %></p>
+      <h4>Details: </h4>
+      <p><%= @exercice.details %></p>
+      <h4>XP: </h4>
+      <p><%= @exercice.exp %></p>
       <p style="color: black !important">solution: <%= @exercice.solution %></p>
     </div>
   </div>
 
   <div class="col-md-8" data-controller="editor">
-      <h2>Your solution</h2>
+      <div class="editor-header-label row">
+        <div class="col-8">
+          <h2>Your solution</h2>
+        </div>
+        <div class="col-4 d-flex mt-2 mr-2">
+          <h5>Total attempts: <%= @submission.attempts_count %></h5>
+        </div>
+      </div>
       <div id="ace-div">
         <code id="ace-editor" data-editor-target="editor"><% if !@submission.user_code %>/*
 Enter your code
