@@ -17,7 +17,7 @@
     <% else %>
       <p>Great job! You completed the exercice with ease.</p>
     <% end %>
-    <p>Gained experience : +<%= @submission.exercice.exp %> exp</p>
+    <p>Experience earned: +<%= @submission.exercice.exp %> exp</p>
   </div>
 </div>
 <br>
@@ -35,7 +35,7 @@
 
 <% if current_user.beginners_luck? %>
    <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-     <span><strong>🏆 Achivement completed !</strong>&nbsp;</span>
+     <span><strong>🏆 Achievement completed !</strong>&nbsp;</span>
      <a data-bs-dismiss="alert" aria-label="Close">
        <i class="fas fa-times"></i>
      </a>

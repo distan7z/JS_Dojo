@@ -1,3 +1,11 @@
+.code-editor-label {
+  position: absolute;
+  top: 260px;
+  left: 100px;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+}
+
 #ace-editor {
   position: absolute;
   width: 800px;
@@ -21,5 +29,6 @@
 
   p {
     font-size: large;
+    font-weight: bold;
   }
 }
