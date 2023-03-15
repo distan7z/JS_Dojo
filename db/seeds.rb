@@ -31,13 +31,16 @@ def new_users
          country: COUNTRY.sample,
          exp: rand(5..110))
   end
+
 end
 new_users
 
 puts "Creating exercices..."
 exercices_path = "app/assets/exercice_rakes_data/"
 
-exercice1 = Exercice.create!(title: "Even or odd?",
+
+
+exercice1 = Exercice.create!(title: "Even or odd ?",
   details: "const evenOrOdd = (number) => {
     // TODO: this should return 'even' if the number is even, 'odd' otherwise
   };",
@@ -59,7 +62,7 @@ exercice2 = Exercice.create!(title: "Minutes To Second",
   instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
   exp: 5,
   testing_code: File.read("#{exercices_path}minutesToSeconds.json"),
-  solution: "function minuteToSecond(minutes) {
+  solution: "function minutesToSeconds(minutes) {
     return  minutes * 60;
   }
   ")
@@ -284,17 +287,21 @@ exercice15 = Exercice.create!(title: "Find Intersection of Two Arrays",
     return intersection;
   }
 
-  " )
+  ")
+
 
 puts "Creating submissions..."
-Submission.create!(attempts_count: 1, validation: false, user_id: User.first.id, exercice_id: Exercice.first.id)
+Submission.create!(attempts_count: 3, validation: true, user_id: User.last.id, exercice_id: exercice4.id)
+Submission.create!(attempts_count: 8, validation: true, user_id: User.last.id, exercice_id: exercice6.id)
+Submission.create!(attempts_count: 5, validation: true, user_id: User.last.id, exercice_id: exercice7.id)
+Submission.create!(attempts_count: 12, validation: true, user_id: User.last.id, exercice_id: exercice14.id)
 
 puts "Creating tags..."
 Tag.create!(title: "Basic", exercice: exercice1)
 Tag.create!(title: "Basic", exercice: exercice2)
 Tag.create!(title: "Basic", exercice: exercice3)
 Tag.create!(title: "Basic", exercice: exercice4)
-Tag.create!(title: "Numbers", exercice: exercice1 )
+Tag.create!(title: "Numbers", exercice: exercice1)
 Tag.create!(title: "Numbers", exercice: exercice2)
 Tag.create!(title: "Numbers", exercice: exercice3)
 Tag.create!(title: "Numbers", exercice: exercice9)
@@ -337,11 +344,6 @@ Tag.create!(title: "Functions", exercice: exercice11)
 Tag.create!(title: "Functions", exercice: exercice12)
 Tag.create!(title: "Functions", exercice: exercice13)
 Tag.create!(title: "Algorithm", exercice: exercice13)
-
-
-
-
-
 
 
 puts "Database seeded!"
