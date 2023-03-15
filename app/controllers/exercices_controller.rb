@@ -7,7 +7,11 @@ class ExercicesController < ApplicationController
   end
 
   def index
-    @exercices = Exercice.all
+    if params[:query]
+      @exercices = Exercice.includes(:tags).where(tags:{title:params[:query]})
+    else
+      @exercices = Exercice.all
+    end
   end
 
   def show
