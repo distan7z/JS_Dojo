@@ -3,7 +3,7 @@
     <div class="card-product d-flex">
       <div class="m-4">
         <% @finished_exercices.each do |finished_exercice| %>
-          <li><%= link_to finished_exercice.exercice.title, exercice_submission_path(finished_exercice.exercice, finished_exercice) %></li>
+          <li><%= link_to finished_exercice.exercice.title, edit_exercice_submission_path(finished_exercice.exercice, finished_exercice) %></li>
           <li><%= finished_exercice.exercice.instructions %></li>
         <% end %>
       </div>

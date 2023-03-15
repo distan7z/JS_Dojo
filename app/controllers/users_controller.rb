@@ -12,6 +12,5 @@ class UsersController < ApplicationController
     @submissions = @user.submissions.validated.includes(:exercice)
     @total_exp = @submissions.sum(&:exp) + @user.exp
     @finished_exercices = Submission.where(user: current_user, validation: true)
-
   end
 end
