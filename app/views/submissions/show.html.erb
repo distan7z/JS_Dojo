@@ -32,3 +32,12 @@
     <a href="#" class="btn btn-linkedin"> <i class="fa-brands fa-linkedin"></i> Share on LinkedIn</a>
   </div>
 </div>
+
+  <% if current_user.beginners_luck? %>
+    <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+      <span><strong>🏆 Achivement completed !</strong>&nbsp;</span>
+      <a data-bs-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  <% end %>
