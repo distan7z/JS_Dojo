@@ -35,7 +35,7 @@
 
 <% if current_user.beginners_luck? %>
    <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-     <span><strong>🏆 Achievement completed ! <%= link_to "See it on my Profil", user_path(current_user), class: "alert-text" %> </strong>&nbsp;</span>
+     <span><strong><%= link_to "🏆 Achievement completed ! See it on my Profil", user_path(current_user), class: "alert-text" %> </strong>&nbsp;</span>
      <a data-bs-dismiss="alert" aria-label="Close">
        <i class="fas fa-times"></i>
      </a>
