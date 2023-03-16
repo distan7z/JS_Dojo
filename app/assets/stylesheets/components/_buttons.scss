@@ -1,18 +1,26 @@
+.btn{
+  color: $darkest-blue;
+}
+
+.btn:hover{
+  color: $darkest-blue;
+}
+
 .button-yellow{
-  color: #000015;
+  color: $darkest-blue;
   background-color: $js-yellow;
-  border-color: #000015 ;
+  border-color: $darkest-blue;
+  max-width: 320px;
   &:hover{
-    color: #000015;
+    color: $darkest-blue;
     background-color: $js-yellow;
     border-color: $js-yellow;
   }
 }
 
-.text-color div input {
-  color: #fff;
+.button-yellow.form-actions{
+  width: min-content;
 }
-
 
 .button-blue{
   color: white;

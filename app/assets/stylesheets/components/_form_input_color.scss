@@ -1,10 +1,22 @@
+.form-select{
+  color: $darkest-blue;
+}
+
+.form-control::file-selector-button{
+  color: $darkest-blue;
+}
+
 .text-color{
   div {
     input{
-      color: black !important;
+      color: $darkest-blue !important;
     }
     input:focus{
-      color: black;
+      color: $darkest-blue;
     }
   }
 }
+
+// .text-color div input {
+//   color: #fff;
+// }
