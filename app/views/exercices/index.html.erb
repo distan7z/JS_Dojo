@@ -19,10 +19,10 @@
       },
       class: "form-control"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%# <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
   </div>
-  <%= turbo_frame_tag "exercices" do %>
+
    <%= render "exercices/partials/exercices", exercices: @exercices%>
-  <% end %>
+
 </div>

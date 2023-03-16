@@ -6,6 +6,6 @@ export default class extends Controller {
     console.log("coucou");
   }
   submitForm() {
-    // this.element.requestSubmit()
+    this.element.requestSubmit()
   }
 }

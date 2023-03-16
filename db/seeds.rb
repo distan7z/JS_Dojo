@@ -24,7 +24,7 @@ COUNTRY = [
 ]
 
 def new_users
-  for i in (0..10)
+  for i in (0..30)
     User.create!(username: Faker::Internet.username,
          email: "user_#{i}@mail.com",
          password: "azerty",

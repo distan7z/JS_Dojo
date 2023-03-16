@@ -12,6 +12,11 @@ class ExercicesController < ApplicationController
     else
       @exercices = Exercice.all
     end
+    if turbo_frame_request?
+      render partial: "exercices/partials/exercices", locals:{ exercices: @exercices}
+    else
+      render :index
+    end
   end
 
   def show
