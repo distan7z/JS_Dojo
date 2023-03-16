@@ -16,8 +16,7 @@
         <h1><%= image_tag (asset_path("flags/#{@user.country.downcase}.png")), style: "width: 32px;" %> <%= @user.username %></h1>
         <!-- <span class="fi fi-gr"></span> FLAG ICONS? -->
         <p>Member since: <%= @user.created_at.strftime("%d %B %Y") %></p>
-        <p>TBD: Profile Biography?</p>
-        <p>Total Exp: <%= @user.exp %></p>
+        <p>Total XP: <%= @user.exp %></p>
 
         <% if current_user == @user %>
           <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
@@ -30,10 +29,9 @@
           <div class="achievements">
           <% if @user.beginners_luck? %>
             <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px", class:"achievement-dyn-image", title:"Beginner's Luck\nComplete exercise on first attempt" %>
+            # class: "badge", style: "background: white; needed?
           <% end %>
           <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px", class:"achievement-dyn-image", title:"Early Adopter\nUse JS Dojo in the first week of launch" %>
-
-
           </div>
         </div>
       </div>

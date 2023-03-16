@@ -1,22 +1,17 @@
 <div class="container">
-  <h1>Exercices</h1>
+  <h1>Exercises</h1>
   <hr>
-  <div class="row">
-    <div>
-      <% @exercices.each do |exercice| %>
-        <div class="card-product d-flex">
-          <div class=" ms-4">
-            <span style="display: flex">
-            <% if exercice.has_submission?(current_user) %>
-              <%= link_to edit_exercice_submission_path(exercice, exercice.user_submission(current_user)) do %>
-                <h3><%= exercice.title %></h3>
-              <% end %>
-            <% else %>
-              <%= link_to new_exercice_submission_path(exercice) do %>
-                <h3><%= exercice.title %></h3>
-              <% end %>
-            <% end %>
-
+  <div class="form-custom">
+    <%= form_with url: exercices_path, method: :get, class: "d-flex ", data:{turbo_frame: "exercices", controller: "form"} do %>
+    <%= select_tag :query, options_from_collection_for_select(Tag.titles, "first", "last"),
+      multiple: true,
+      data: {controller: "tom-select",
+        action: "form#submitForm",
+        tom_select_options_value: {
+        tags: true,
+        plugins: {
+          remove_button:{
+          title:'Remove this item',
             <%exercice.tags.each do |tag|%>
               <div class= "tag rounded-pill text-bg-warning mx-2">
                 <p><%= tag.title %></p>
@@ -24,7 +19,7 @@
             <% end %>
             </span>
             <p>Instruction : <%= exercice.instructions.first(140)%> [...] </p>
-            <p>Exp : <strong><%= exercice.exp%></strong> </p>
+            <p>XP : <strong><%= exercice.exp%></strong> </p>
           </div>
           <div class="m-4">
             <% if user_signed_in? %>
@@ -38,5 +33,16 @@
         </div>
       <% end %>
     </div>
+		      }
+        }
+       }
+      },
+      class: "form-control"
+    %>
+    <%# <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   </div>
+
+   <%= render "exercices/partials/exercices", exercices: @exercices%>
+
 </div>

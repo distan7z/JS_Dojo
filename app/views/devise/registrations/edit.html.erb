@@ -21,7 +21,7 @@
                 hint: "We need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :country, collection: ["France", "Germany", "Spain"],
+    <%= f.input :country, collection: ["Australia", "Belgium", "Brazil", "Bulgaria", "Canada", "China", "Estonia", "France", "Germany", "India", "Italy", "Japan", "Netherland", "Norway", "Poland", "Russia", "Spain", "Sweden", "Sweden", "Switzerland", "United-Kingdom", "United-States"],
                 hint: "Leave it blank if you don't want to change it",
                 required: false,
                 autofocus: true %>
@@ -35,7 +35,7 @@
                 autofocus: true %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions button-yellow">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
