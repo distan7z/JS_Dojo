@@ -8,10 +8,11 @@ require "faker"
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning Database..."
 
+User.destroy_all
 Tag.destroy_all
 Submission.destroy_all
 Exercice.destroy_all
-User.destroy_all
+
 
 puts "Database cleaned!"
 

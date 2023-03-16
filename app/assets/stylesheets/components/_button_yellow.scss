@@ -1,8 +1,27 @@
-.button-yello{
-  color: $js-yellow;
+.button-yellow{
+  color: #000015;
   background-color: $js-yellow;
+  border-color: #000015 ;
+  &:hover{
+    color: #000015;
+    background-color: $js-yellow;
+    border-color: $js-yellow;
+    border-width: 2px;
+  }
 }
 
 .text-color div input {
   color: #fff;
+}
+
+
+.button-blue{
+  color: white;
+  background-color: #172ef6;
+  border-color: white;
+  &:hover{
+    color: white;
+    background-color: #172ef6;
+    border-color: white;
+  }
 }
