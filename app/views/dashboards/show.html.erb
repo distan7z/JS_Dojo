@@ -35,7 +35,11 @@
   <div class="challenges">
     <h2>Achievements</h2>
     <%= image_tag (asset_path("achievements/ActiveUser.png")), class: "badge-opacity", width: "40px" %>
-    <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px" %>
+    <% if current_user.beginners_luck? %>
+        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px"%>
+    <% else %>
+        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), class: "badge-opacity", width: "40px"%>
+    <% end %>
     <%= image_tag (asset_path("achievements/Bookmarker.png")), class: "badge-opacity", width: "40px" %>
     <%= image_tag (asset_path("achievements/Champ.png")), class: "badge-opacity", width: "40px" %>
     <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px" %>

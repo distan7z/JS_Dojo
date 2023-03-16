@@ -187,7 +187,7 @@ exercice9 = Exercice.create!(title: "Check if a number is prime",
   }
   " )
 
-exercice10 = Exercice.create!(title: "Find the factorial of a numbe",
+exercice10 = Exercice.create!(title: "Find the factorial of a number",
   details: "Think about how you can use a loop to iterate from 1 up to the input number, and then multiply each number in the loop with the product of all previous numbers to get the factorial.",
   instructions: "Write a function that takes a number as an argument and returns the factorial of that number (the product of all positive integers up to and including that number).",
   exp: 10,
