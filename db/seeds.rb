@@ -19,30 +19,182 @@ puts "Creating users..."
 
 COUNTRY = ["Australia", "Belgium", "Brazil", "Bulgaria", "Canada", "China", "Estonia", "France", "Germany", "India", "Italy", "Japan", "Netherland", "Norway", "Poland", "Russia", "Spain", "Sweden", "Sweden", "Switzerland", "United-Kingdom", "United-States"]
 
+USERNAMES = [
+  "shantel",
+  "debra.bergnaum",
+  "elia",
+  "bobbie",
+  "myles",
+  "korey",
+  "arnulfo_howell",
+  "peg",
+  "malik",
+  "lashaunda",
+  "maria.christiansen",
+  "scottie",
+  "lola",
+  "clyde",
+  "elfreda",
+  "zane_stehr",
+  "sharie.krajcik",
+  "christy",
+  "zandra_bernhard",
+  "ouida_davis",
+  "regenia",
+  "grady.schiller",
+  "stuart",
+  "lou.ward",
+  "efrain",
+  "cathrine",
+  "syreeta",
+  "corey_gutkowski",
+  "ronald_ondricka",
+  "wilton_schinner",
+  "billye_waters",
+  "romona_willms",
+  "ron",
+  "eugene",
+  "madlyn.fritsch",
+  "rochelle_reilly",
+  "tresa_crooks",
+  "marion.veum",
+  "aileen_ullrich",
+  "sterling_connelly",
+  "raleigh_schinner",
+  "ralph_keeling",
+  "arnulfo.leannon",
+  "earnestine",
+  "edgardo",
+  "valentina_wuckert",
+  "rosamaria",
+  "carmelia",
+  "alphonse_keebler",
+  "lanita",
+  "christin",
+  "miguel_morissette",
+  "olive",
+  "josue",
+  "sherilyn",
+  "yasmine.blanda",
+  "eugenio",
+  "sherrill",
+  "jay",
+  "shonda",
+  "shelton",
+  "tiffany.kris",
+  "glen",
+  "delfina",
+  "erinn.mraz",
+  "brian.kuhn",
+  "ashley.howell",
+  "merissa.hammes",
+  "naoma.fahey",
+  "dorian.aufderhar",
+  "selena.beahan",
+  "milo_bartoletti",
+  "heather",
+  "jacques",
+  "kayce_schumm",
+  "giovanni",
+  "jasmin",
+  "arnoldo.bins",
+  "raphael.rohan",
+  "sheron.barrows",
+  "ezra_carter",
+  "hana_larson",
+  "sanford",
+  "angila",
+  "jean",
+  "rosetta",
+  "tenesha_metz",
+  "mazie",
+  "meri",
+  "edra",
+  "lavette",
+  "jonah.flatley",
+  "lori_crist",
+  "hilda",
+  "king",
+  "hwa",
+  "ferne_hermann",
+  "dustin",
+  "van",
+  "rich_ohara",
+  "kasey.rutherford",
+  "jed",
+  "ebonie",
+  "sandie.upton",
+  "thomasena.schumm",
+  "perry",
+  "shawn.bernhard",
+  "ariel_thompson",
+  "chantelle.schowalter",
+  "theodore",
+  "wendell.bogan",
+  "janean",
+  "courtney",
+  "clemente.abshire",
+  "phillip.king",
+  "margaret.gutkowski",
+  "broderick.hoeger",
+  "melissa.welch",
+  "joette.harber",
+  "vickey.welch",
+  "val_rippin",
+  "zachery_stoltenberg",
+  "alexia.quigley",
+  "mathew",
+  "alline_herman",
+  "dottie.monahan",
+  "robert_kirlin",
+  "rosalind",
+  "dudley_simonis",
+  "carmelina.marvin",
+  "elijah",
+  "benton",
+  "colby_windler",
+  "jasmine",
+  "heriberto.vonrueden",
+  "cary_gleason",
+  "javier",
+  "douglas.gutmann",
+  "hubert_kuhlman",
+  "keturah_stamm",
+  "wilber_aufderhar",
+  "craig",
+  "kathrine",
+  "delbert",
+  "earl",
+  "euna",
+  "jerrod.prosacco",
+  "fritz.towne",
+  "gearldine_langosh",
+  "hoyt",
+  "domm"
+]
+
 def new_users
-
-  for i in (0..150)
-
-    User.create!(username: Faker::Internet.username,
-         email: "user_#{i}@mail.com",
-         password: "azerty",
-         country: COUNTRY.sample,
-         exp: rand(5..110))
+  (0..150).each do |i|
+    User.create!(
+      username: USERNAMES[i],
+      email: "user_#{i}@mail.com",
+      password: "azerty",
+      country: COUNTRY.sample,
+      exp: rand(5..110)
+    )
   end
-
 end
-new_users
+
+new_users()
 
 puts "Creating exercices..."
 exercices_path = "app/assets/exercice_rakes_data/"
 
-
-
 exercice1 = Exercice.create!(title: "Even or odd?",
-  details: "const evenOrOdd = (number) => {
-    // TODO: this should return 'even' if the number is even, 'odd' otherwise
-  };",
-  instructions: "Let's start with a very simple algorithm. Open the file lib/even_or_odd.js. Code the evenOrOdd function which takes a number parameter (of type number) and returns a string : 'even' if the number is even (0, 2, 4, etc.)
+  details: "You modulo operator might be useful!",
+  # evenOrOdd(2) should return 'even'
+  # evenOrOdd(7) should return 'odd'",
+  instructions: "Code the evenOrOdd function which takes a number parameter (of type number) and returns a string : 'even' if the number is even (0, 2, 4, etc.)
   odd' if the number is odd (1, 3, 5, etc.)",
   function_name: "const evenOrOdd = (number) => {
   /*
@@ -59,9 +211,10 @@ exercice1 = Exercice.create!(title: "Even or odd?",
   }};")
 
 exercice2 = Exercice.create!(title: "Minutes To Second",
-  details: "Example:
-  minutesToSeconds(4) ➞ 240
-  minutesToSeconds(3) ➞ 180",
+  details: "If you know how many seconds there is in a minute it should be straightforward.",
+  # Examples:
+  # minutesToSeconds(4) should return 240
+  # minutesToSeconds(3) should return 180",
   instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
   function_name: "const minutesToSeconds = (minutes) => {
   /*
@@ -76,10 +229,11 @@ exercice2 = Exercice.create!(title: "Minutes To Second",
   ")
 
 exercice3 = Exercice.create!(title: "Rest of Euclidian Division",
-  details: "Example:
-  restOfEuclidianDiv(1, 3) ➞ 1
-  restOfEuclidianDiv(2, 4) ➞ 2
-  restOfEuclidianDiv(3, 3) ➞ 0",
+  details: "Using modulo will be very handy for this, but you can also use the integer divison operator.",
+  # Examples:
+  # restOfEuclidianDiv(1, 3) should return 1
+  # restOfEuclidianDiv(2, 4) should return 2
+  # restOfEuclidianDiv(3, 3) should return 0",
   instructions: "Write a JavaScript program to return the rest of the euclidian division of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
   function_name: "const restOfEuclidianDivision = (number) => {
   /*
