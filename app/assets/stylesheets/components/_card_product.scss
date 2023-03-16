@@ -9,12 +9,18 @@
   border: solid 1px $border-blue;
   justify-content: space-between;
 }
+  a {
+    color: whitesmoke;
+  }
+
+  a:hover {
+    color: $js-yellow;
+  }
 
 .card-product:hover {
   box-shadow: 0 0 15px $js-yellow;
   border: solid 1px $js-yellow;
 }
-
 
 .card-product h2 {
   font-size: 16px;
