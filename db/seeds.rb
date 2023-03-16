@@ -8,7 +8,6 @@ require "faker"
 #   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning Database..."
 
-
 Tag.destroy_all
 Submission.destroy_all
 Exercice.destroy_all
@@ -234,7 +233,7 @@ exercice3 = Exercice.create!(title: "Rest of Euclidian Division",
     restOfEuclidianDiv(2, 4) should return 2<br>
     restOfEuclidianDiv(3, 3) should return 0",
   instructions: "Write a JavaScript program to return the rest of the euclidian division of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
-  function_name: "const restOfEuclidianDiv = (number) => {
+  function_name: "const restOfEuclidianDiv = (a, b) => {
   /*
     Enter your code here
   */

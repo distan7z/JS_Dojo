@@ -5,7 +5,7 @@
   },
   {
     "input" : "restOfEuclidianDiv(3, 3);",
-    "expected-output": 2
+    "expected-output": 0
   },
   {
     "input" : "restOfEuclidianDiv(-1, 3);",
