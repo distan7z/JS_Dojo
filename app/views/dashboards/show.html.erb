@@ -34,17 +34,17 @@
   </div>
   <div class="challenges">
     <h2>Achievements</h2>
-    <%= image_tag (asset_path("achievements/ActiveUser.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/ActiveUser.png")), class: "badge-opacity achievement-dyn-image", title: "Active User\nLogin 7 days in a row", width: "40px" %>
     <% if current_user.beginners_luck? %>
-        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px"%>
+        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), class: "achievement-dyn-image", title: "Beginner's Luck\nComplete exercise on first attempt", width: "40px"%>
     <% else %>
-        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), class: "badge-opacity", width: "40px"%>
+        <%= image_tag (asset_path("achievements/BeginnersLuck.png")), class: "badge-opacity achievement-dyn-image", title: "Beginner's Luck\nComplete exercise on first attempt", width: "40px"%>
     <% end %>
-    <%= image_tag (asset_path("achievements/Bookmarker.png")), class: "badge-opacity", width: "40px" %>
-    <%= image_tag (asset_path("achievements/Champ.png")), class: "badge-opacity", width: "40px" %>
-    <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px" %>
-    <%= image_tag (asset_path("achievements/Grandmaster.png")), class: "badge-opacity", width: "40px" %>
-    <%= image_tag (asset_path("achievements/NoLife.png")), class: "badge-opacity", width: "40px" %>
-    <%= image_tag (asset_path("achievements/Ready2Code.png")), class: "badge-opacity", width: "40px" %>
+    <%= image_tag (asset_path("achievements/Bookmarker.png")), class: "badge-opacity achievement-dyn-image", title: "Bookmarker\nAdd an exercise as favorite", width: "40px" %>
+    <%= image_tag (asset_path("achievements/Champ.png")), class: "badge-opacity achievement-dyn-image", title: "Champ\nFinish 10 exercises", width: "40px" %>
+    <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px", class: "achievement-dyn-image", title: "Early Adopter\nUse JS Dojo in the first week of launch" %>
+    <%= image_tag (asset_path("achievements/Grandmaster.png")), class: "badge-opacity achievement-dyn-image", title: "Grandmaster\nFinish all exercises", width: "40px" %>
+    <%= image_tag (asset_path("achievements/NoLife.png")), class: "badge-opacity achievement-dyn-image", title: "No-Life\nLogin 8 days in a row", width: "40px" %>
+    <%= image_tag (asset_path("achievements/Ready2Code.png")), class: "badge-opacity achievement-dyn-image", title: "Ready2Code\nComplete your profile", width: "40px" %>
   </div>
 </div>

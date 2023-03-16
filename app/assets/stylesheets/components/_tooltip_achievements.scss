@@ -1,0 +1,25 @@
+.achievement-dyn-image {
+  position: relative;
+  display: inline-block;
+}
+
+.achievement-dyn-image::after {
+  content: attr(title);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 20px;
+  white-space: nowrap;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.achievement-dyn-image:hover::after {
+  opacity: 1;
+}
