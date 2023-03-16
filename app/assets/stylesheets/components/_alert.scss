@@ -19,3 +19,13 @@
 .flash-warning {
   border: 2px solid #FFC65A;
 }
+
+.alert-text{
+  font-family: 'Work',  sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  &:hover {
+  color: $js-yellow;
+  }
+}
