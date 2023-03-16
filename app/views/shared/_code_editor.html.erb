@@ -5,7 +5,7 @@
     <div class="card-instruction">
       <h4>Instructions: </h4>
       <p><%= @exercice.instructions %></p>
-      <p>Warning: your function must be nammed</p>
+      <p>Warning: your function must be nammed :          <br>"<%= /const\s+(\w+)\s+(?==)/.match(@exercice.function_name) %>"</p>
       <hr>
       <p>XP earned on completion: <strong><%= @exercice.exp %></strong></p>
     </div>
@@ -13,6 +13,7 @@
     <div class="card-instruction">
       <h4>Hint: </h4>
       <p><%= @exercice.details %></p>
+      <hr>
       <h4>Examples:</h4>
       <p><%= @exercice.examples.html_safe %></p>
       <% if must_show_solution == true %>
