@@ -45,7 +45,7 @@ a {
   font-family: 'JetBrains Mono', monospace;
   text-decoration: none;
   color: white;
-  :hover{
+  &:hover{
     color: $js-yellow;
   }
 }

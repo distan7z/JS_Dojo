@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4 ">
-    <div class="card-instruction">
+    <div class="card-code-editor">
       <h4>Instructions: </h4>
       <p><%= @exercice.instructions %></p>
       <p>Warning: your function must be nammed :          <br>"<%= /const\s+(\w+)\s+(?==)/.match(@exercice.function_name) %>"</p>
@@ -10,7 +10,7 @@
       <p>XP earned on completion: <strong><%= @exercice.exp %></strong></p>
     </div>
 
-    <div class="card-instruction">
+    <div class="card-code-editor">
       <h4>Hint: </h4>
       <p><%= @exercice.details %></p>
       <hr>
