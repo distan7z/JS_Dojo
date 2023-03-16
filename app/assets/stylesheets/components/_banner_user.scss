@@ -19,10 +19,16 @@
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
+
+  a {
+    position: bottom right;
+  }
+
   .user-info {
     background: linear-gradient(45deg, #252424, #070707, #292727);
-    width: 80%;
+    width: 55%;
     padding: 10px 20px;
     border-radius: 4px;
+    border: 1px solid $js-yellow;
   }
 }
