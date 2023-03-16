@@ -10,6 +10,12 @@
   justify-content: space-between;
 }
 
+.card-product:hover {
+  box-shadow: 0 0 15px $js-yellow;
+  border: solid 1px $js-yellow;
+}
+
+
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
@@ -35,6 +41,8 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+
 
 
 
