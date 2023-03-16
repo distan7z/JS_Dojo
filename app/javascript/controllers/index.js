@@ -7,5 +7,11 @@ import { application } from "./application"
 import EditorController from "./editor_controller"
 application.register("editor", EditorController)
 
+import FormController from "./form_controller"
+application.register("form", FormController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

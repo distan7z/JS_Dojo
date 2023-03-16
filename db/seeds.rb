@@ -20,7 +20,9 @@ puts "Creating users..."
 COUNTRY = ["Australia", "Belgium", "Brazil", "Bulgaria", "Canada", "China", "Estonia", "France", "Germany", "India", "Italy", "Japan", "Netherland", "Norway", "Poland", "Russia", "Spain", "Sweden", "Sweden", "Switzerland", "United-Kingdom", "United-States"]
 
 def new_users
+
   for i in (0..150)
+
     User.create!(username: Faker::Internet.username,
          email: "user_#{i}@mail.com",
          password: "azerty",

@@ -1,0 +1,41 @@
+<%= turbo_frame_tag "exercices" do %>
+  <div class="row">
+      <div>
+        <% exercices.each do |exercice| %>
+          <div class="card-product d-flex">
+            <div class=" ms-4">
+              <span style="display: flex">
+              <% if exercice.has_submission?(current_user) %>
+                <%= link_to edit_exercice_submission_path(exercice, exercice.user_submission(current_user)), data: {turbo: "false"} do %>
+                  <h3><%= exercice.title %></h3>
+                <% end %>
+              <% else %>
+                <%= link_to new_exercice_submission_path(exercice), data: {turbo: "false"} do %>
+                  <h3><%= exercice.title %></h3>
+                <% end %>
+              <% end %>
+
+              <%exercice.tags.each do |tag|%>
+                <div class= "tag rounded-pill text-bg-warning mx-2">
+                  <p><%= tag.title %></p>
+                </div>
+              <% end %>
+              </span>
+              <p>Instruction : <%= exercice.instructions.first(140)%> [...] </p>
+              <p>Exp : <strong><%= exercice.exp%></strong> </p>
+            </div>
+            <div class="m-4">
+              <% if user_signed_in? %>
+                <%= link_to toggle_favorite_exercice_path(exercice), data: {turbo_method: :post} do %>
+                  <%= turbo_frame_tag "like_#{dom_id(exercice)}" do %>
+                    <%= render partial: 'exercices/partials/like_button', locals: { exercice: exercice } %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
