@@ -192,8 +192,8 @@ exercices_path = "app/assets/exercice_rakes_data/"
 
 exercice1 = Exercice.create!(title: "Even or odd?",
   details: "You modulo operator might be useful!",
-  # evenOrOdd(2) should return 'even'
-  # evenOrOdd(7) should return 'odd'",
+  examples: "evenOrOdd(2) should return 'even'<br>
+  evenOrOdd(7) should return 'odd'",
   instructions: "Code the evenOrOdd function which takes a number parameter (of type number) and returns a string : 'even' if the number is even (0, 2, 4, etc.)
   odd' if the number is odd (1, 3, 5, etc.)",
   function_name: "const evenOrOdd = (number) => {
@@ -212,9 +212,8 @@ exercice1 = Exercice.create!(title: "Even or odd?",
 
 exercice2 = Exercice.create!(title: "Minutes To Second",
   details: "If you know how many seconds there is in a minute it should be straightforward.",
-  # Examples:
-  # minutesToSeconds(4) should return 240
-  # minutesToSeconds(3) should return 180",
+  examples: "minutesToSeconds(4) should return 240<br>
+  minutesToSeconds(3) should return 180",
   instructions: "Write a function that takes an integer number of minutes and converts it to seconds.",
   function_name: "const minutesToSeconds = (minutes) => {
   /*
@@ -230,12 +229,11 @@ exercice2 = Exercice.create!(title: "Minutes To Second",
 
 exercice3 = Exercice.create!(title: "Rest of Euclidian Division",
   details: "Using modulo will be very handy for this, but you can also use the integer divison operator.",
-  # Examples:
-  # restOfEuclidianDiv(1, 3) should return 1
-  # restOfEuclidianDiv(2, 4) should return 2
-  # restOfEuclidianDiv(3, 3) should return 0",
+  examples: "restOfEuclidianDiv(1, 3) should return 1
+    restOfEuclidianDiv(2, 4) should return 2<br>
+    restOfEuclidianDiv(3, 3) should return 0",
   instructions: "Write a JavaScript program to return the rest of the euclidian division of two numbers. There is only one operator in JavaScript that can provide the remainder of a division. Two numbers are passed as parameters. The first parameter divided by the second parameter.",
-  function_name: "const restOfEuclidianDivision = (number) => {
+  function_name: "const restOfEuclidianDiv = (number) => {
   /*
     Enter your code here
   */
@@ -253,6 +251,7 @@ exercice3 = Exercice.create!(title: "Rest of Euclidian Division",
 exercice4 = Exercice.create!(title: "FizzBuzz",
   details: "Think about how you can use a loop to iterate over the numbers 1 to 100, and then use conditional statements to check if each number is divisible by 3, 5, or both.
   You will need to use the modulus operator to check for divisibility.",
+  examples: "",
   instructions: "Write a function that prints the numbers from 1 to 100. For multiples of 3, print 'Fizz' instead of the number. For multiples of 5, print 'Buzz' instead of the number. For numbers that are multiples of both 3 and 5, print 'FizzBuzz'",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -272,6 +271,7 @@ exercice4 = Exercice.create!(title: "FizzBuzz",
 exercice5 = Exercice.create!(title: "Find the maximum value in an array",
   details: "Think about how you can use a loop to iterate over the array and keep track of the maximum value you have seen so far.
   You will need to initialize a variable to hold the maximum value before the loop starts.",
+  examples: "",
   instructions: "Write a function that takes an array of numbers as an argument and returns the maximum value in the array.",
   exp: 5,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -290,6 +290,7 @@ exercice5 = Exercice.create!(title: "Find the maximum value in an array",
 exercice6 = Exercice.create!(title: "Reverse a string",
   details: "Think about how you can use a loop to iterate over the characters in the string and build a new string that is the reverse of the original string.
   You will need to use string concatenation to build the new string.",
+  examples: "",
   instructions: "Write a function that takes a string as an argument and returns the reversed version of the string.
   ",
   exp: 5,
@@ -302,6 +303,7 @@ exercice6 = Exercice.create!(title: "Reverse a string",
 exercice7 = Exercice.create!(title: "Palindrome checker",
   details: "Think about how you can use two pointers to check if the string is a palindrome.
   You will need to compare the characters at the beginning and end of the string, and then move the pointers towards the middle of the string until they meet.",
+  examples: "",
   instructions: "Write a function that takes a string as an argument and returns true if the string is a palindrome (reads the same forwards and backwards), false otherwise.",
   exp: 5,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -314,6 +316,7 @@ exercice7 = Exercice.create!(title: "Palindrome checker",
 exercice8 = Exercice.create!(title: "Capitalize the first letter of each word in a string",
   details: "Think about how you can use the split method to break the string into an array of words, and then use a loop to iterate over the words in the array.
   You will need to use string slicing and the toUpperCase method to capitalize the first letter of each word, and then concatenate the capitalized letter with the rest of the word.",
+  examples: "",
   instructions: "Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized.",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -329,6 +332,7 @@ exercice8 = Exercice.create!(title: "Capitalize the first letter of each word in
 exercice9 = Exercice.create!(title: "Check if a number is prime",
   details: "Think about how you can use a loop to iterate over the numbers from 2 up to the square root of the input number.
   You will need to use the modulus operator to check if the input number is divisible by any of the numbers in the loop.",
+  examples: "",
   instructions: "Write a function that takes a number as an argument and returns true if the number is prime (only divisible by 1 and itself), false otherwise.",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -347,6 +351,7 @@ exercice9 = Exercice.create!(title: "Check if a number is prime",
 
 exercice10 = Exercice.create!(title: "Find the factorial of a number",
   details: "Think about how you can use a loop to iterate from 1 up to the input number, and then multiply each number in the loop with the product of all previous numbers to get the factorial.",
+  examples: "",
   instructions: "Write a function that takes a number as an argument and returns the factorial of that number (the product of all positive integers up to and including that number).",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -362,6 +367,7 @@ exercice10 = Exercice.create!(title: "Find the factorial of a number",
 exercice11 = Exercice.create!(title: "Count the number of vowels in a string",
   details: "Think about how you can use a loop to iterate over the characters in the string, and then use conditional statements to check if each character is a vowel.
   You will need to initialize a counter variable before the loop starts.",
+  examples: "",
   instructions: "Write a function that takes a string as an argument and returns the number of vowels (a, e, i, o, u) in the string.",
   exp: 15,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -379,6 +385,7 @@ exercice11 = Exercice.create!(title: "Count the number of vowels in a string",
 
 exercice12 = Exercice.create!(title: "Flatten an array",
   details: "Think about how you can use nested loops to iterate over the arrays in the input array, and then concatenate the elements from the sub-arrays into a new array.",
+  examples: "",
   instructions: "Write a function that takes an array of arrays as an argument and returns a new array that is the flattened version of the original array (all elements from all sub-arrays concatenated into a single array).",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -394,7 +401,10 @@ exercice12 = Exercice.create!(title: "Flatten an array",
   " )
 
 exercice13 = Exercice.create!(title: "Merge two sorted arrays into one sorted array",
-  details: "Think about how you can use two pointers, one for each input array, to compare elements. You will need to add the smaller of the two elements to a new array, and then move the corresponding pointer forward. Repeat until all elements from both arrays have been added to the new array.",
+  details: "Think about how you can use two pointers, one for each input array, to compare elements.
+  You will need to add the smaller of the two elements to a new array, and then move the corresponding pointer forward.
+  Repeat until all elements from both arrays have been added to the new array.",
+  examples: "",
   instructions: "Write a function that takes two sorted arrays as arguments and returns a new sorted array that contains all elements from both input arrays.",
   exp: 20,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -424,7 +434,9 @@ exercice13 = Exercice.create!(title: "Merge two sorted arrays into one sorted ar
   " )
 
 exercice14 = Exercice.create!(title: "Find Longest Word in String",
-  details: "Write a function that takes in a string and returns the longest word in the string. If there are two or more words that are tied for the longest word, return the first one.",
+  details: "Write a function that takes in a string and returns the longest word in the string.
+  If there are two or more words that are tied for the longest word, return the first one.",
+  examples: "",
   instructions: "For example, given the string 'The quick brown fox jumped over the lazy dog', the function should return 'jumped'.  ",
   exp: 20,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -446,7 +458,9 @@ exercice14 = Exercice.create!(title: "Find Longest Word in String",
 
 
 exercice15 = Exercice.create!(title: "Find Intersection of Two Arrays",
-  details: "For example, given the arrays [1, 2, 3, 4, 5] and [3, 4, 5, 6, 7], the function should return [3, 4, 5]. Note that the order of the elements in the returned array does not matter.",
+  details: "For example, given the arrays [1, 2, 3, 4, 5] and [3, 4, 5, 6, 7], the function should return [3, 4, 5].
+  Note that the order of the elements in the returned array does not matter.",
+  examples: "",
   instructions: "Implement a function that takes in two arrays of integers, arr1 and arr2, and returns a new array containing the intersection of the two arrays. The intersection should be computed based on the values in the arrays, not the indices.",
   exp: 20,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),

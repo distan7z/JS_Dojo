@@ -1,3 +1,5 @@
+<% must_show_solution = true %>
+
 <div class="row">
   <div class="col-md-4 ">
     <div class="card-instruction">
@@ -11,7 +13,11 @@
     <div class="card-instruction">
       <h4>Hint: </h4>
       <p><%= @exercice.details %></p>
-      <p style="color: black !important">solution: <%= @exercice.solution %></p>
+      <h4>Examples:</h4>
+      <p><%= @exercice.examples.html_safe %></p>
+      <% if must_show_solution == true %>
+        <p style="color: black !important">solution: <%= @exercice.solution %></p>
+      <% end %>
     </div>
 
 
