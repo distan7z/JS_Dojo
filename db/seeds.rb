@@ -251,7 +251,8 @@ exercice3 = Exercice.create!(title: "Rest of Euclidian Division",
 # ---------------------------------------------
 
 exercice4 = Exercice.create!(title: "FizzBuzz",
-  details: "Think about how you can use a loop to iterate over the numbers 1 to 100, and then use conditional statements to check if each number is divisible by 3, 5, or both. You will need to use the modulus operator to check for divisibility.",
+  details: "Think about how you can use a loop to iterate over the numbers 1 to 100, and then use conditional statements to check if each number is divisible by 3, 5, or both.
+  You will need to use the modulus operator to check for divisibility.",
   instructions: "Write a function that prints the numbers from 1 to 100. For multiples of 3, print 'Fizz' instead of the number. For multiples of 5, print 'Buzz' instead of the number. For numbers that are multiples of both 3 and 5, print 'FizzBuzz'",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -269,7 +270,8 @@ exercice4 = Exercice.create!(title: "FizzBuzz",
   " )
 
 exercice5 = Exercice.create!(title: "Find the maximum value in an array",
-  details: "Think about how you can use a loop to iterate over the array and keep track of the maximum value you have seen so far. You will need to initialize a variable to hold the maximum value before the loop starts.",
+  details: "Think about how you can use a loop to iterate over the array and keep track of the maximum value you have seen so far.
+  You will need to initialize a variable to hold the maximum value before the loop starts.",
   instructions: "Write a function that takes an array of numbers as an argument and returns the maximum value in the array.",
   exp: 5,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -286,7 +288,8 @@ exercice5 = Exercice.create!(title: "Find the maximum value in an array",
 
 
 exercice6 = Exercice.create!(title: "Reverse a string",
-  details: "Think about how you can use a loop to iterate over the characters in the string and build a new string that is the reverse of the original string. You will need to use string concatenation to build the new string.",
+  details: "Think about how you can use a loop to iterate over the characters in the string and build a new string that is the reverse of the original string.
+  You will need to use string concatenation to build the new string.",
   instructions: "Write a function that takes a string as an argument and returns the reversed version of the string.
   ",
   exp: 5,
@@ -297,7 +300,8 @@ exercice6 = Exercice.create!(title: "Reverse a string",
   " )
 
 exercice7 = Exercice.create!(title: "Palindrome checker",
-  details: "Think about how you can use two pointers to check if the string is a palindrome. You will need to compare the characters at the beginning and end of the string, and then move the pointers towards the middle of the string until they meet.",
+  details: "Think about how you can use two pointers to check if the string is a palindrome.
+  You will need to compare the characters at the beginning and end of the string, and then move the pointers towards the middle of the string until they meet.",
   instructions: "Write a function that takes a string as an argument and returns true if the string is a palindrome (reads the same forwards and backwards), false otherwise.",
   exp: 5,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -308,7 +312,8 @@ exercice7 = Exercice.create!(title: "Palindrome checker",
   " )
 
 exercice8 = Exercice.create!(title: "Capitalize the first letter of each word in a string",
-  details: "Think about how you can use the split method to break the string into an array of words, and then use a loop to iterate over the words in the array. You will need to use string slicing and the toUpperCase method to capitalize the first letter of each word, and then concatenate the capitalized letter with the rest of the word.",
+  details: "Think about how you can use the split method to break the string into an array of words, and then use a loop to iterate over the words in the array.
+  You will need to use string slicing and the toUpperCase method to capitalize the first letter of each word, and then concatenate the capitalized letter with the rest of the word.",
   instructions: "Write a function that takes a string as an argument and returns a new string where the first letter of each word is capitalized.",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -322,7 +327,8 @@ exercice8 = Exercice.create!(title: "Capitalize the first letter of each word in
   " )
 
 exercice9 = Exercice.create!(title: "Check if a number is prime",
-  details: "Think about how you can use a loop to iterate over the numbers from 2 up to the square root of the input number. You will need to use the modulus operator to check if the input number is divisible by any of the numbers in the loop.",
+  details: "Think about how you can use a loop to iterate over the numbers from 2 up to the square root of the input number.
+  You will need to use the modulus operator to check if the input number is divisible by any of the numbers in the loop.",
   instructions: "Write a function that takes a number as an argument and returns true if the number is prime (only divisible by 1 and itself), false otherwise.",
   exp: 10,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
@@ -354,7 +360,8 @@ exercice10 = Exercice.create!(title: "Find the factorial of a number",
   " )
 
 exercice11 = Exercice.create!(title: "Count the number of vowels in a string",
-  details: "Think about how you can use a loop to iterate over the characters in the string, and then use conditional statements to check if each character is a vowel. You will need to initialize a counter variable before the loop starts.",
+  details: "Think about how you can use a loop to iterate over the characters in the string, and then use conditional statements to check if each character is a vowel.
+  You will need to initialize a counter variable before the loop starts.",
   instructions: "Write a function that takes a string as an argument and returns the number of vowels (a, e, i, o, u) in the string.",
   exp: 15,
   testing_code: File.read("#{exercices_path}restOfEuclidianDiv.json"),
