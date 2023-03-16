@@ -8,16 +8,16 @@
 
   <div>
     <% if @submission.attempts_count > 3 %>
-      <p>If you took too many attempts to complete the exercise, here are some tips to improve your performance:</p>
+      <p>If you took too many attempts to complete the exercise, here are some tips to improve your performances:</p>
       <ul>
         <li>Read the instructions carefully before attempting the exercise.</li>
         <li>Break down the problem into smaller parts.</li>
         <li>Use debugging tools to find and fix errors in your code.</li>
       </ul>
     <% else %>
-      <p>Great job! You completed the exercice with ease.</p>
+      <p>Great job! You completed the exercise with ease.</p>
     <% end %>
-    <p>Experience earned: +<%= @submission.exercice.exp %> exp</p>
+    <p>XP earned: +<%= @submission.exercice.exp %></p>
   </div>
 </div>
 <br>
