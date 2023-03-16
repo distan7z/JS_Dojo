@@ -29,7 +29,6 @@
           <div class="achievements">
           <% if @user.beginners_luck? %>
             <%= image_tag (asset_path("achievements/BeginnersLuck.png")), width: "40px", class:"achievement-dyn-image", title:"Beginner's Luck\nComplete exercise on first attempt" %>
-            # class: "badge", style: "background: white; needed?
           <% end %>
           <%= image_tag (asset_path("achievements/EarlyAdopter.png")), width: "40px", class:"achievement-dyn-image", title:"Early Adopter\nUse JS Dojo in the first week of launch" %>
           </div>
