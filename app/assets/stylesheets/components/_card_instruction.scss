@@ -1,9 +1,7 @@
 .card-instruction{
   padding: 30px;
   margin-top: 15px;
-  //background-color: #20201b;
   background-color: desaturate($color: $darkest-blue, $amount: 20%);
-  //box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 18px 8px rgba($color: $js-yellow, $alpha: 0.2);
   border: 1px solid $js-yellow;
   border-radius: 8px;
@@ -12,10 +10,7 @@
 .card-code-editor {
   padding: 30px;
   margin-top: 15px;
-  //background-color: #20201b;
-  background-color: desaturate($color: $darkest-blue, $amount: 20%);
-  //box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 18px 8px rgba($color: $js-yellow, $alpha: 0.1);
-  border: 1px solid rgba($color: $js-yellow, $alpha: 0.7);
+  background-color: #232323;
+  border: 1px solid #737373;
   border-radius: 8px;
 }
